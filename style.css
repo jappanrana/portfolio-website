@@ -387,10 +387,3 @@ input:checked + .slider:before {
 .tmp {
 	color: black;
 }
-
-/**/
-#media (max-width: 540px) {
-body {
-font-size:18px !important;
-}
-}
