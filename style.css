@@ -1,7 +1,7 @@
 html {
 	scroll-behavior: smooth;
 }
-*, body, input, select {font-family: "Segoe UI"}
+*, body, input, select {font-family: 'Noto Sans KR', sans-serif;}
 
 body {
 	background-color: #000000f0;
@@ -106,7 +106,7 @@ a:hover {
 .intro-about-pic figure figcaption{
 	font-size: 1.5em;
 	font-weight: 300;
-	font-family: "jokerman"/*change this*/;
+	font-family: 'Lobster', cursive;
 }
 
 .intro-about-text{
