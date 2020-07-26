@@ -227,10 +227,12 @@ a:hover {
 	opacity: 1;
 }
 
-.glow {
+.contactmehead {
   font-size: 50px;
-  color: silver;
   text-align: center;
+}
+.glow {
+  color: silver;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
