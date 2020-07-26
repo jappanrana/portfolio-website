@@ -389,3 +389,8 @@ input:checked + .slider:before {
 }
 
 /**/
+#media (max-width: 540px) {
+body {
+font-size:18px !important;
+}
+}
