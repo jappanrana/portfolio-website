@@ -647,15 +647,15 @@
 		}
 	</script>
 	<script>
-		$(document).ready(function() {
+		$(window).on("load", function() {
 			//Preloader
 			preloaderFadeOutTime = 500;
 			function hidePreloader() {
 				var preloader = $('.spinner-wrapper');
 				preloader.fadeOut(preloaderFadeOutTime);
 				}
-			$(window).on("load", function() {hidePreloader();});
-			});
+			hidePreloader();
+		});
 	</script>
 </body>
 </html>
