@@ -824,3 +824,7 @@ input:checked + .slider:before {
     width: 80%;
     border-radius: 30px;
 }
+
+#projects h1{
+  font-size: 2.1em;
+}
