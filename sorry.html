@@ -75,8 +75,9 @@
     </style>
     <script>
         let collectedFlowers = 0;
-        function collectFlower() {
+        function collectFlower(event) {
             collectedFlowers++;
+            event.target.style.display = 'none';
             if (collectedFlowers >= 5) {
                 document.getElementById('forgiveBtn').style.display = 'inline-block';
             }
@@ -88,14 +89,14 @@
     <div class="container">
         <div class="graphic"></div>
         <h1>I'm Sorry, My Love!</h1>
-        <p>I didn’t mean to upset you. You’re the most special person in my life, and I promise to make it up to you. 💕</p>
-        <p>Help me collect flowers to win your forgiveness! 🌸</p>
+        <p>I didn’t mean to get late and upset you my bachaa.  You’re the most special person in my life. I know today we couldn't spend much time together and I promise to make it up to you. 💕</p>
+        <p>Accept my flowers and forgive me my queen! 🌸</p>
         <div class="game">
-            <div class="flower" onclick="collectFlower()"></div>
-            <div class="flower" onclick="collectFlower()"></div>
-            <div class="flower" onclick="collectFlower()"></div>
-            <div class="flower" onclick="collectFlower()"></div>
-            <div class="flower" onclick="collectFlower()"></div>
+            <div class="flower" onclick="collectFlower(event)"></div>
+            <div class="flower" onclick="collectFlower(event)"></div>
+            <div class="flower" onclick="collectFlower(event)"></div>
+            <div class="flower" onclick="collectFlower(event)"></div>
+            <div class="flower" onclick="collectFlower(event)"></div>
         </div>
         <p>Flowers collected: <span id="flowerCount">0</span>/5</p>
         <button id="forgiveBtn" style="display: none;" onclick="alert('Thank you for forgiving me! I love you ❤️')">Forgive Me?</button>
