@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+        .graphic {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: url('./boy-bouquet.gif') no-repeat center;
+            background-size: contain;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #444444;
+        }
+        p {
+            font-size: 16px;
+            color: #555555;
+            margin: 15px 0;
+        }
+        .game {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .flower {
+            width: 50px;
+            height: 50px;
+            background: url('./fl.png') no-repeat center;
+            background-size: contain;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .flower:hover {
+            transform: scale(1.2);
+        }
+        button {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    <script>
+        let collectedFlowers = 0;
+        function collectFlower() {
+            collectedFlowers++;
+            if (collectedFlowers >= 5) {
+                document.getElementById('forgiveBtn').style.display = 'inline-block';
+            }
+            document.getElementById('flowerCount').innerText = collectedFlowers;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="graphic"></div>
+        <h1>I'm Sorry, My Love!</h1>
+        <p>I didn’t mean to upset you. You’re the most special person in my life, and I promise to make it up to you. 💕</p>
+        <p>Help me collect flowers to win your forgiveness! 🌸</p>
+        <div class="game">
+            <div class="flower" onclick="collectFlower()"></div>
+            <div class="flower" onclick="collectFlower()"></div>
+            <div class="flower" onclick="collectFlower()"></div>
+            <div class="flower" onclick="collectFlower()"></div>
+            <div class="flower" onclick="collectFlower()"></div>
+        </div>
+        <p>Flowers collected: <span id="flowerCount">0</span>/5</p>
+        <button id="forgiveBtn" style="display: none;" onclick="alert('Thank you for forgiving me! I love you ❤️')">Forgive Me?</button>
+    </div>
+</body>
+</html>
