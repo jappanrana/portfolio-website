@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>For My Love</title>
+	<style type="text/css">
+		.neon {
+		  color: #fff;
+		  text-shadow:
+		    0 0 5px #fff,
+		    0 0 10px #fff,
+		    0 0 20px #fff,
+		    0 0 40px #0ff,
+		    0 0 80px #0ff,
+		    0 0 90px #0ff,
+		    0 0 100px #0ff,
+		    0 0 150px #0ff;
+		}
+
+		/* general styling */
+		:root {
+		  font-size: calc(1vw + 1vh + 1.5vmin);
+		}
+
+		html, body {
+		  height: 100%;
+		  margin: 0;
+		}
+
+		.container {
+		  margin: 0 auto;
+		}
+
+		body {
+		  -webkit-box-align: center;
+		  -ms-flex-align: center;
+		  align-items: center;
+		  background-color: #010a00;
+		  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+		  display: -webkit-box;
+		  display: -ms-flexbox;
+		  display: flex;
+		  font-family: -apple-system, 
+		    BlinkMacSystemFont, 
+		    "Segoe UI", 
+		    Roboto, 
+		    Oxygen-Sans, 
+		    Ubuntu, 
+		    Cantarell, 
+		    "Helvetica Neue", 
+		    sans-serif;
+		  font-size: 1rem;
+		}
+
+		h1 {
+		  font-weight: 400;
+		  text-align: center;
+		  text-transform: uppercase;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+  <h1 class="neon">i love you</h1>
+</div>
+<script type="text/javascript">
+	const quotes = [
+    "I love you more than words can express, {{name}}.",
+    "Every moment with you is a blessing, {{name}}.",
+    "You are my sunshine, {{name}}, my happiness.",
+    "{{name}}, you make my world brighter every day.",
+    "With you, {{name}}, love feels magical and infinite.",
+    "Your smile brightens my day, {{name}}.",
+    "You always know how to make me laugh, {{name}}.",
+    "Your kindness inspires me, {{name}}.",
+    "You listen to me with genuine interest, {{name}}.",
+    "You support my dreams, {{name}}.",
+    "You have the most beautiful eyes, {{name}}.",
+    "You make me feel safe, {{name}}.",
+    "Your hugs are the best, {{name}}.",
+    "You are incredibly thoughtful, {{name}}.",
+    "You bring out the best in me, {{name}}.",
+    "You're my best friend, {{name}}.",
+    "You accept me as I am, {{name}}.",
+    "Your love for adventure excites me, {{name}}.",
+    "I admire the way you care for others, {{name}}.",
+    "Your creativity amazes me, {{name}}.",
+    "You make even the ordinary moments special, {{name}}.",
+    "Your sense of humor makes my days brighter, {{name}}.",
+    "The way you look at me melts my heart, {{name}}.",
+    "You are so patient, {{name}}.",
+    "You never give up on us, {{name}}.",
+    "You are my biggest cheerleader, {{name}}.",
+    "Your intelligence impresses me, {{name}}.",
+    "You're a great cook, {{name}}.",
+    "You're my confidant, {{name}}.",
+    "You surprise me in the best ways, {{name}}.",
+    "You're always up for trying new things, {{name}}.",
+    "Your optimism is contagious, {{name}}.",
+    "You're incredibly hardworking, {{name}}.",
+    "Your loyalty means everything to me, {{name}}.",
+    "You make me feel appreciated, {{name}}.",
+    "Your laugh is infectious, {{name}}.",
+    "You make me a better person, {{name}}.",
+    "Your sense of adventure is inspiring, {{name}}.",
+    "You're always there when I need you, {{name}}.",
+    "Your passion for life amazes me, {{name}}.",
+    "The way you hold my hand comforts me, {{name}}.",
+    "You're an amazing listener, {{name}}.",
+    "Your generosity knows no bounds, {{name}}.",
+    "You respect me, {{name}}, and I cherish that.",
+    "You're honest with me, {{name}}.",
+    "You're my rock, {{name}}.",
+    "You make me feel cherished, {{name}}.",
+    "Your kisses are magical, {{name}}.",
+    "You're my favorite person, {{name}}.",
+    "Your resilience inspires me, {{name}}.",
+    "You're my partner in crime, {{name}}.",
+    "Your strength gives me courage, {{name}}.",
+    "You make me feel alive, {{name}}.",
+    "Your dedication to our relationship means the world to me, {{name}}.",
+    "You're always honest with me, {{name}}, and I love that.",
+    "Your warm heart fills me with love, {{name}}.",
+    "You make every day brighter, {{name}}.",
+    "Your sense of style is incredible, {{name}}.",
+    "You're my soulmate, {{name}}.",
+    "Your sense of adventure excites me, {{name}}.",
+    "You always have the best ideas, {{name}}.",
+    "You're my inspiration, {{name}}.",
+    "Your selflessness is admirable, {{name}}.",
+    "You understand me like no one else, {{name}}.",
+    "You make me feel special, {{name}}.",
+    "Your positive attitude lifts me up, {{name}}.",
+    "You're so caring, {{name}}.",
+    "You're my comfort, {{name}}.",
+    "Your smile is contagious, {{name}}.",
+    "You're my partner in everything, {{name}}.",
+    "Your laugh makes me happy, {{name}}.",
+    "You're my safe haven, {{name}}.",
+    "Your spontaneity keeps life exciting, {{name}}.",
+    "You make me feel loved, {{name}}.",
+    "You're incredibly thoughtful, {{name}}.",
+    "You always make time for me, {{name}}.",
+    "You're my favorite person to talk to, {{name}}.",
+    "You make me feel important, {{name}}.",
+    "Your loyalty means the world to me, {{name}}.",
+    "You're my best friend and lover, {{name}}.",
+    "You're my constant support, {{name}}.",
+    "Your warmth makes me feel at home, {{name}}.",
+    "You make me feel understood, {{name}}.",
+    "You're my perfect match, {{name}}.",
+    "Your patience with me is a blessing, {{name}}.",
+    "You're my biggest fan, {{name}}.",
+    "You make me laugh like no one else, {{name}}.",
+    "Your loving nature is beautiful, {{name}}.",
+    "You make life fun, {{name}}.",
+    "You're always there for me, {{name}}.",
+    "Your thoughtfulness touches my heart, {{name}}.",
+    "You make my heart skip a beat, {{name}}.",
+    "You're my everything, {{name}}.",
+    "Your encouragement pushes me forward, {{name}}.",
+    "You're my greatest adventure, {{name}}.",
+    "You make me feel at home, {{name}}.",
+    "Your tenderness is comforting, {{name}}.",
+    "You make me smile, {{name}}.",
+    "Your dedication to us is incredible, {{name}}.",
+    "You're my forever, {{name}}.",
+    "You make life worth living, {{name}}.",
+    "You're my reason to smile, {{name}}.",
+    "You make me feel complete, {{name}}.",
+    "Your love is my strength, {{name}}.",
+    "You're my one and only true love, {{name}}."
+];
+
+
+const names = [
+	"my Adorable", "my Bachaa", "my babbyy", "my baby girl", "my babu",
+    "my babe", "my Cutiee", "my Donutt", "my darling", "my dudu",
+    "my divine", "my Elegant", "my Favourite", "my fragile", "my Gorgeous",
+    "my goddesss", "my Hottiee", "my hornyyy babbyyy", "my Idealll", "my Jaan",
+    "my Kiddoo", "my Love", "my lady", "my life", "my Mine", "my mature",
+    "my Naughtyy", "my Original", "my Patnii", "my pani puri", "my pyaara babyy",
+    "my princess", "my panda", "my pretty", "my precious", "my Queen",
+    "my Royal", "my Shortyyy", "my sunshine", "my sexy girl", "my smartyy",
+    "my sweet", "my Tasty", "my treasure", "my Understanding", "my Valuable",
+    "my Wiffeee", "my wholesome", "my Xena", "my Yummyy", "my Zestyy"
+];
+
+function generateQuote() {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const finalQuote = randomQuote.replace("{{name}}", randomName);
+    
+    document.querySelector(".neon").textContent = finalQuote;
+}
+
+window.onload = generateQuote;
+
+</script>
+</body>
+</html>
