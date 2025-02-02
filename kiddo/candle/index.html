@@ -42,7 +42,7 @@
     Notification.requestPermission().then((permission) => {
       if (permission === "granted") {
         console.log("Notification permission granted.");
-        getToken(messaging, { vapidKey: "YOUR_VAPID_KEY" })
+        getToken(messaging, { vapidKey: "48jayOrHQTuZnaQiPRvFhYur4flRVamC_c22CPGMIe4" })
           .then((token) => {
             console.log("Token:", token);
           })
@@ -66,7 +66,7 @@
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "key=YOUR_SERVER_KEY",
+          Authorization: "key=BOpU8fG89f-GLTRF3Baz7lAfmJpCpCOTfydt_eb-1t9So-KBR2MMeHFrcucMIq7tMWwzoivx-4kFjtu16nLeUf4	",
         },
         body: JSON.stringify({
           to: "DEVICE_TOKEN", // Replace with the device token of the app
