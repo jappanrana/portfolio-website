@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Journey</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to bottom right, #FFF8E1, #FFE0B2, #FFEBEE);
+      color: #4E342E;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .journey-container {
+      text-align: center;
+      background: #FFF3E0;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #D84315;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .gift-wrapper {
+      display: inline-block;
+      position: relative;
+      margin-top: 30px;
+      cursor: pointer;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(145deg, #ffdfd5, #ffb3b3);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 15px;
+    }
+
+    .gift-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: #ff99cc;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .gift-ribbon {
+      position: absolute;
+      top: -15px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(90deg, #ff7f7f, #ffb3b3);
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 30px;
+    }
+
+    .gift-content {
+      display: none;
+      font-size: 1.1rem;
+      padding: 20px;
+      color: #4E342E;
+      background-color: #ffb3b3;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 10px;
+    }
+
+    .confetti {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .confetti div {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #FF4081;
+      animation: confetti-fall 2s ease-in-out infinite;
+    }
+
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+  <div class="journey-container">
+    <h1>Our Love Story</h1>
+    <p>
+      It all began with a <span class="highlight">simple hello</span>, two strangers brought together by destiny. From endless chats to moments that made our hearts race, we discovered what it meant to truly <span class="highlight">connect</span>.
+    </p>
+ 
+    <p>
+It all started with a simple hello, two hearts connecting from miles away. From the late-night chats to the early-morning texts, every moment brought us closer.
+
+Through the laughter, the tears, and the unforgettable memories, we built something truly special. Every step of our journey has been a testament to our love, resilience, and bond.
+
+Here's to all the moments we've shared and the countless ones yet to come. You are my everything, my forever.
+    </p>
+    <p>
+      I wanted to create something special for you, a place to celebrate our love, our story, and the amazing future we’ll build together.
+    </p>
+
+<p>
+      With every step of our journey, we've <span class="highlight">grown</span> stronger, from the laughter we've shared to the tears we've wiped away. 
+      Each memory is a chapter in our <span class="highlight">beautiful story</span>.
+    </p>
+    <p>
+      Here's to <span class="highlight">forever</span>, to all the dreams we've whispered to the stars, and to a future where our love continues to bloom as beautifully as a <span class="highlight">rose</span>.
+    </p>
+
+    <p><strong>Now, here's something special! Open this gift to reveal a little surprise!</strong></p>
+
+    <!-- Gift Box with Proposal Letter -->
+    <div class="gift-wrapper" onclick="openGift()">
+      <div class="gift-ribbon">Open Me!</div>
+      <div class="gift-box"></div>
+      <div class="gift-content" id="gift-content">
+        <p>
+          <strong>My Precious Kannaya,</strong><br><br>
+          Oh, my dear, my precious light,  
+          A gift to you, my heart takes flight.  
+          For all the love you give to me,  
+          A boundless gift, as deep as the sea.  
+          <br><br>
+          You’re the blessing my soul holds tight,  
+          The joy that fills my days with light.  
+          I see the sacrifices you’ve silently made,  
+          The struggles, the lows, the sorrows displayed.  
+          <br><br>
+          I know the times I test your grace,  
+          Yet somehow, you still embrace  
+          The quirks in me that make you smile,  
+          Loving me more with every mile.  
+          <br><br>
+          Each passing day, your love grows strong,  
+          A melody of selflessness, a perfect song.  
+          How did I get so lucky in this life?  
+          To call you my love, my soul’s delight.  
+          <br><br>
+          From a boy to a man in such little time,  
+          You’ve shown me a love so pure, divine.  
+          Mumbai holds our most cherished day,  
+          A memory priceless, come what may.  
+          <br><br>
+          Words can’t contain the love I feel,  
+          It’s more than human words can reveal.  
+          I dream of a home, warm and true,  
+          A life of laughter and love with you.  
+          <br><br>
+          With "unlimited hugs" and kisses to share,  
+          And passion burning beyond compare.  
+          Anddddddd, my darling, let’s not forget,  
+          All the adventures life hasn’t brought yet.  
+          <br><br>
+          You’re my cupcake, my heart’s sweet glow,  
+          I love you more than you’ll ever know.  
+          Umma, my love, my forever star,  
+          With you, my kannaya, I’ve come this far.  
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Animation -->
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    function openGift() {
+      document.getElementById('gift-content').style.display = 'block';
+      document.querySelector('.gift-wrapper').style.cursor = 'default';
+
+      // Trigger Confetti Animation
+      createConfetti();
+    }
+
+    function createConfetti() {
+      const confettiContainer = document.getElementById('confetti');
+      for (let i = 0; i < 100; i++) {
+        const confettiPiece = document.createElement('div');
+        confettiPiece.style.left = `${Math.random() * 100}%`;
+        confettiPiece.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        confettiPiece.style.animationDelay = `${Math.random() * 2}s`;
+        confettiContainer.appendChild(confettiPiece);
+      }
+      confettiContainer.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

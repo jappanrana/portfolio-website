@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pillow Fight</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #ffebf0;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .pillow-display {
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+        .stickman {
+            position: relative;
+            width: 100px;
+            height: 180px;
+            margin: 20px auto;
+        }
+        .stickman div {
+            position: absolute;
+            background: black;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .head {
+            width: 30px;
+            height: 30px;
+            top: 0;
+            left: 35px;
+        }
+        .body {
+            width: 10px;
+            height: 50px;
+            top: 30px;
+            left: 45px;
+        }
+        .arm-left, .arm-right {
+            display: none;
+            width: 10px;
+            height: 40px;
+            top: 40px;
+        }
+        .arm-left {
+            display: none;
+            left: 20px;
+            transform: rotate(-30deg);
+        }
+        .arm-right {
+            display: none;
+            left: 60px;
+            transform: rotate(30deg);
+        }
+        .leg-left, .leg-right {
+            display: none;
+            width: 10px;
+            height: 40px;
+            top: 80px;
+        }
+        .leg-left {
+            display: none;
+            left: 30px;
+            transform: rotate(-10deg);
+        }
+        .leg-right {
+            display: none;
+            left: 50px;
+            transform: rotate(10deg);
+        }
+        .clickable {
+            cursor: pointer;
+        }
+        .selected {
+            background: red !important;
+        }
+        .receipt {
+            background: #fffaf0;
+            border: 2px dashed #ff69b4;
+            padding: 10px;
+            display: none;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Virtual Pillow Fight Punishment</h1>
+    
+    <div class="card">
+        <div class="slider-container">
+            <label>Pillow Size:</label>
+            <input type="range" id="pillowSize" min="0" max="1" step="1" oninput="updatePillowSize(this.value)">
+            <div class="pillow-display" id="pillowDisplay">🛏️ Small</div>
+        </div>
+        
+        <label>Target Area:</label>
+        <div class="stickman">
+            <div class="head clickable" onclick="selectTarget('head')"></div>
+            <div class="body clickable" onclick="selectTarget('body')"></div>
+            <div class="arm-left clickable" onclick="selectTarget('left arm')"></div>
+            <div class="arm-right clickable" onclick="selectTarget('right arm')"></div>
+            <div class="leg-left clickable" onclick="selectTarget('left leg')"></div>
+            <div class="leg-right clickable" onclick="selectTarget('right leg')"></div>
+        </div>
+        
+        <div class="slider-container">
+            <label>Number of Attacks:</label>
+            <input type="range" id="numAttacks" min="1" max="10" step="1" oninput="updateAttackCount(this.value)">
+            <div id="attackDisplay">1</div>
+        </div>
+        
+        <button onclick="generateSlip()">Generate Punishment Slip</button>
+    </div>
+    
+    <div id="punishmentSlip" class="receipt"></div>
+    
+    <script>
+        let selectedTarget = '';
+
+        function updatePillowSize(value) {
+            const display = document.getElementById('pillowDisplay');
+            if (value == 0) {
+                display.textContent = '🛏️ Small';
+                display.style.transform = 'scale(1)';
+            } else {
+                display.textContent = '🛏️ Large';
+                display.style.transform = 'scale(1.5)';
+            }
+        }
+
+        function updateAttackCount(value) {
+            document.getElementById('attackDisplay').textContent = value;
+        }
+
+        function selectTarget(area) {
+            document.querySelectorAll('.clickable').forEach(el => el.classList.remove('selected'));
+            const target = document.querySelector(`.${area.replace(' ', '-')}`);
+            if (target) {
+                target.classList.add('selected');
+            }
+            selectedTarget = area;
+        }
+
+        function generateSlip() {
+            const pillowSize = document.getElementById('pillowSize').value == 0 ? 'Small' : 'Large';
+            const numAttacks = document.getElementById('numAttacks').value;
+
+            if (!selectedTarget) {
+                alert('Please select a target area!');
+                return;
+            }
+
+            const slipText = `📜 Punishment Receipt 📜\nYou owe your wife ${numAttacks} ${pillowSize} ${selectedTarget} shots!`;
+            const slipDiv = document.getElementById('punishmentSlip');
+            slipDiv.textContent = slipText;
+            slipDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
