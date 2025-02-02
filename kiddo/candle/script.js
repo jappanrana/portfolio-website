@@ -1,12 +1,13 @@
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
+    apiKey: "AIzaSyDKNdunqp160Ue_xGDFmAtMRijtKh4DxsU",
+    authDomain: "candle-89f92.firebaseapp.com",
+    projectId: "candle-89f92",
+    storageBucket: "candle-89f92.firebasestorage.app",
+    messagingSenderId: "63732429438",
+    appId: "1:63732429438:web:1d3f91e7797f0bdf135e2f",
+    measurementId: "G-P0G8YMLL87"
+  };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
