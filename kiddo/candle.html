@@ -271,9 +271,6 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   </style>
 </head>
 <body>
-  <center>
-    <h3>Hey Kiddo</h3>
-  </center>
   <div class="holder">
     <div class="candle">
       <div class="blinking-glow"></div>
@@ -282,23 +279,5 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
       <div class="flame"></div>
     </div>
   </div>
-  <center>
-    <button onclick="blowClicked()" class="custom-btn btn-12"><span>miss you too baby!</span><span>blow</span></button>
-  </center>
-  <script>
-        function blowClicked() {
-          // Select the elements
-          const blinkingGlow = document.querySelector('.blinking-glow');
-          const glow = document.querySelector('.glow');
-          const flame = document.querySelector('.flame');
-
-          // Set display: none to each element
-          if (blinkingGlow) blinkingGlow.style.display = 'none';
-          if (glow) glow.style.display = 'none';
-          if (flame) flame.style.display = 'none';
-          window.location = 'https://jappanrana.github.io/portfolio-website/kiddo/quote.html';
-          // sendNotification();
-        }
-    </script>
 </body>
 </html>
