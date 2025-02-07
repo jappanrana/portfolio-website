@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css">
+body{
+  overflow:hidden;
+}
+.dot{
+  width:35px;
+  height:35px;
+  position:absolute;
+  background: url(https://image.ibb.co/kyUHab/rose.png);
+  background-size: 100% 100%;
+}
+html, body, #container {width:100%; height:100%; }
+#logo{ left:50%; top:50%; position:absolute; border-radius:10px; }
+
+
+      h1{
+        font-family: 'Sacramento', cursive;
+        color: #FE7696;
+        font-size: 64px;
+      }
+      
+      .letter{
+        width: 600px;
+        height: 400px;
+        display: inline-block;
+      }
+      
+      .rose{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        animation: yidon 5s infinite;
+        transform: translateY(40%);
+      }
+      
+      .petal{
+        width: 50px;
+        height: 50px;
+        background: #fe7696;
+        border-radius: 0px 50%;
+        position: absolute;
+        box-shadow: 0 0 10px #D1123F;
+        z-index: 2;
+        transform-origin: bottom right; 
+        animation: zhankai2 10s infinite;
+        
+      }
+      
+      .petal:nth-child(2){
+        transform-origin: right bottom;
+        transform: rotate(90deg);
+        background: #fe7696;
+        left: -10px;
+        animation: zhankai1 10s infinite;
+      }
+      
+      .petal:nth-child(3){
+        width: 40px;
+        height: 40px;
+        left: 10px;
+        top: -20px;
+        z-index: 1;
+        background: #f03a64;
+        transform-origin: bottom right; 
+        animation: zhankai2 10s infinite;
+      }
+      
+      .petal:nth-child(4){
+        transform: rotate(90deg);
+        width: 40px;
+        height: 40px;
+        left: 0px;
+        top: -20px;
+        z-index: 1;
+        background: #f03a64;
+        transform-origin: bottom right; 
+        animation: zhankai1 10s infinite;
+      }
+      
+      .petal:nth-child(5){
+        width: 50px;
+        height: 50px;
+        border-radius: 20px;
+        left: 20px;
+        top: -30px;
+        z-index: 0;
+        background: #d1123f;
+        
+      }
+      
+      .leaf{
+        position: absolute;
+        top: 120px;
+        left: -115px;
+      }
+      
+      .stem{
+        width: 240px;
+        height: 40px;
+        background: transparent;
+        border: 8px solid #8ac78a;
+        border-color: #77a377 transparent transparent transparent;
+        border-radius: 50% 50%;
+        transform: rotate(100deg);
+      }
+      
+      .leafs{
+        width: 50px;
+        height: 40px;
+        border-radius: 0px 50%;
+        background: #77a377;
+        position: absolute;
+        top: 0;
+        left: 100px;
+        z-index: 49;
+      }
+      
+      .leafs:nth-child(2){
+        width: 40px;
+        height: 20px;
+        top: 40px;
+        left: 140px;
+        transform: rotate(120deg);
+      }
+      
+      @keyframes yidon{
+        50%{
+          transform: translateY(35%);
+        }
+        100%{
+          transform: translateY(40%);
+        }
+      }
+      
+      @keyframes zhankai1{
+        50%{
+          transform: rotate(110deg);
+        }
+        100%{
+          transform: rotate(90deg);
+        }
+      }
+      
+      @keyframes zhankai2{
+        50%{
+          transform: rotate(-20deg);
+        }
+        100%{
+          transform: rotate(0deg);
+        }
+      }
+
+  </style>
+</head>
+<body>
+
+<div id="container">
+
+      <div class="letter">
+        <h1>Your smile is as beautiful as rose, I hope you can always smile.
+          <br>
+          /\/\
+          <br>
+          (^-^)
+          <br>
+          />✿> <button onclick="window.location.replace('./rose3.html');"> next </button>
+          <br>
+        </h1>
+      </div>
+      <div class="rose">
+        <div class="flower">
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+        </div>
+        <div class="leaf">
+          <div class="stem"></div>
+          <div class="leafs"></div>
+          <div class="leafs"></div>
+        </div>
+      </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<script type="text/javascript">
+  /*
+a Pen by DIACO : twitter.com/Diaco_ml  ||  codepen.io/MAW
+powered by GSAP : https://www.greensock.com/
+*/
+TweenLite.set("#container", { perspective: 600 });
+TweenLite.set("img", { xPercent: "-50%", yPercent: "-50%" });
+
+var total = 30;
+var warp = document.getElementById("container"),
+  w = window.innerWidth,
+  h = window.innerHeight;
+
+for (i = 0; i < total; i++) {
+  var Div = document.createElement("div");
+  TweenLite.set(Div, {
+    attr: { class: "dot" },
+    x: R(0, w),
+    y: R(-200, -150),
+    z: R(-200, 200)
+  });
+  warp.appendChild(Div);
+  animm(Div);
+}
+
+function animm(elm) {
+  TweenMax.to(elm, R(6, 15), {
+    y: h + 100,
+    ease: Linear.easeNone,
+    repeat: -1,
+    delay: -15
+  });
+  TweenMax.to(elm, R(4, 8), {
+    x: "+=100",
+    rotationZ: R(0, 180),
+    repeat: -1,
+    yoyo: true,
+    ease: Sine.easeInOut
+  });
+  TweenMax.to(elm, R(2, 8), {
+    rotationX: R(0, 360),
+    rotationY: R(0, 360),
+    repeat: -1,
+    yoyo: true,
+    ease: Sine.easeInOut,
+    delay: -5
+  });
+}
+
+function R(min, max) {
+  return min + Math.random() * (max - min);
+}
+
+// a Pen by DIACO : twitter.com/Diaco_ml  ||  codepen.io/MAW
+
+</script>
+</body>
+</html>
