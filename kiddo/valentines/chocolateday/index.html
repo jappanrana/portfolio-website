@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chocolate Day</title>
+  <style type="text/css">
+    @import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+/* general styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #1E2749;
+    font-family: 'Lily Script One', 'helvetica', Arial, sans-serif;
+    font-size: 10px;
+}
+
+/* header styling */
+.header {
+    color: #E4D9FF;
+    text-align: center;
+}
+
+.header h1 {
+    margin-top: 3rem;
+    font-size: 3rem;
+}
+
+.controls {
+    margin: 3rem auto 1rem;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.15rem;
+    font-family: 'helvetica', Arial, sans-serif;
+    transition: all 0.3s;
+}
+
+.refresh {
+    transition: all 0.3s;
+}
+
+.refresh:hover {
+    color: #273469;
+}
+
+.moves-container {
+    margin-left: 1rem;
+}
+
+.game-start-btn {
+    width: 150px;
+    border: 1px solid #E4D9FF;
+    border-radius: 50px;
+    padding: 0.5rem;
+    transition: all 0.3s;
+}
+
+.game-start-btn:hover {
+    background: #E4D9FF;
+    color: #1E2749;
+    cursor: pointer;
+}
+
+.hide-start-btn {
+    display: none;
+}
+
+/* card ddeck styling */
+
+.deck {
+    margin: 3vh auto 0 ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 660px;
+    min-height: 600px;
+}
+
+.card {
+    list-style: none;
+    width: 130px;
+    height: 130px;
+    color: #E4D9FF;
+    background: #1E2744;
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    perspective: 500px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transform-origin: center;
+    transition: all 0.5s;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card-face {
+    position: absolute;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+    .card-face img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+.front {
+    background: #273469;
+}
+
+.back {
+    background: #273469;
+    transform: rotateY( 180deg );
+}
+
+.fab {
+    font-size: 5rem;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.card-container.flipped {
+    transform: rotateY(180deg);
+}
+
+.cant-click-this {
+    pointer-events: none;
+}
+
+.wrong {
+    animation: wrong 0.25s ease-in-out;
+}
+
+@keyframes wrong {
+    0% {
+        transform: rotate(0);
+    } 25% {
+         transform: rotate(-15deg);
+    } 50% {
+         transform: rotate(0);
+    } 75% {
+        transform: rotate(15deg);
+    } 100% {
+         transform: rotate(0);
+    }
+}
+
+.correct {
+    animation: correct 0.3s ease-in-out;
+}
+
+@keyframes correct {
+    0% {
+        transform: scaleX(1) scaleY(1);
+    } 50% {
+        transform: scaleX(1.15) scaleY(1.1);
+    } 100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+/* win section styling */
+.win {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #FAFAFF;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.win h1 {
+    color: #273469;
+    font-size: 3.5rem;
+    margin-top: 16rem;
+}
+
+.win h3 {
+    margin-top: 1rem;
+    font-family: 'helvetica', Arial, sans-serif;
+    color: #273469;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.win p {
+    margin-top: 1rem;
+    font-family: 'helvetica', Arial, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 200;
+    color: #aaa;
+}
+
+.replay {
+    margin-top: 2rem;
+    width: 150px;
+    padding: 1rem;
+    border-radius: 50px;
+    background: rgb(126, 149, 230);
+    border: none;
+    color: #FAFAFF;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    transition: all 0.25s;
+    outline: none;
+}
+
+.replay:hover {
+    background: #273469;
+}
+
+.replay:active {
+    background: rgb(22, 29, 53);
+}
+
+.win-screen {
+    display: block;
+     opacity: 1;
+}
+
+.star, .moves, .seconds {
+    font-weight: bold;
+}
+
+/* resposivness */
+@media  screen and (max-width: 650px) {
+
+
+  .card {
+      width: 120px;
+      height: 120px;
+      /* margin: 0.3em; */
+  }
+
+  .controls {
+      width: 500px;
+  }
+}
+
+@media  screen and (max-width: 525px) {
+
+  .card {
+      width: 100px;
+      height: 100px;
+
+  }
+
+  .controls {
+      width: 500px;
+  }
+}
+
+@media  screen and (max-width: 450px) {
+
+  .card {
+      width: 90px;
+      height: 90px;
+
+  }
+
+  .controls {
+      width: 400px;
+  }
+}
+  </style>
+</head>
+<body>
+<header class="header">
+        <h1>Matching Game</h1>
+        <div class="controls">
+            <div class="star-list">
+                <i class="fas fa-star star-1 stars"></i>
+                <i class="fas fa-star star-2 stars"></i>
+                <i class="fas fa-star star-3 stars"></i>
+                <span class="moves-container">
+                <span class="moves-selector">0</span>
+                Moves
+                </span>
+            </div>
+            <div class="time-container">
+                <div class="timer"></div>
+                <div class="game-start-btn">Star Game</div>
+            </div>
+            <div class="refresh">
+                <i class="fas fa-redo-alt"></i>
+            </div>
+        </div>
+    </header>
+    <section class="game-container">
+        <ul class="deck">
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        <li class="card">
+            <div class="card-container">
+                <div class="card-face front"></div>
+                <div class="card-face back"><img src="img1.png" alt="Tile"></div>
+            </div>
+        </li>
+        </ul>
+    </section>
+    <div class="win">
+        <h1>Congratulations!</h1>
+        <h3>- You won! -</h3>
+        <p>It took you about <span class="seconds">32</span> Seconds to comeplete the game <br> with <span class="moves">17</span> Moves and <span class="star">1</span> Stars.<br>Woooohoooooo!</p>
+        <button class="replay">Collect Rewards!</button>
+    </div>
+    <script type="text/javascript">
+      let cardsCollected = [];
+let DeckOfCards = [];
+let cardOneElement, cardTwoElement, startTime;
+let seconds = 0;
+let currentTurn = 0;
+let moves = 0;
+let stars = 3;
+let gameWon = false;
+
+const deck = document.querySelector('.deck');
+const winContainer = document.querySelector('.win');
+const btnReplay = document.querySelector('.replay');
+const moveHolder = document.querySelector('.moves');
+const starHolder = document.querySelector('.star');
+const resetButton = document.querySelector('.refresh');
+const movesContainer = document.querySelector('.moves-selector');
+const starsList = document.querySelectorAll('.stars');
+const startBtn = document.querySelector('.game-start-btn');
+const timerContainer = document.querySelector('.timer');
+const secondsContainer = document.querySelector('.seconds');
+
+
+  const images = [
+    'https://www.koyambedumarket.in/uploads/product/-937557341.png', 'https://www.koyambedumarket.in/uploads/product/-937557341.png', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT6Q04_DxY5frjB3kUpZDM1aSwKPyUWrR2t6n3fSa_DDSo0VrkaHz1IokHGJ69t5jSdr_JmqFqg5RkjITufUzjeYmyx6aFoKL0cuaQL-Eq2EfcZUj8tgP26_g', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT6Q04_DxY5frjB3kUpZDM1aSwKPyUWrR2t6n3fSa_DDSo0VrkaHz1IokHGJ69t5jSdr_JmqFqg5RkjITufUzjeYmyx6aFoKL0cuaQL-Eq2EfcZUj8tgP26_g', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOz6YAvYrAqa_r1osdox-kCa15_yXiZEBSQ9N0PFu9FE1VCyAiuoFozOLcpVTivVQ9d24c9pC9wjE75MUR0_5eN_YloC7YWSFa_V74xzVrmrjrDmcjXFNDKw&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOz6YAvYrAqa_r1osdox-kCa15_yXiZEBSQ9N0PFu9FE1VCyAiuoFozOLcpVTivVQ9d24c9pC9wjE75MUR0_5eN_YloC7YWSFa_V74xzVrmrjrDmcjXFNDKw&usqp=CAE',
+    'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTLh7RvjlD-W-3RsDSd1fPhN6WA-o_YOgAdSDk2qgmb44J2z0gzj6IkM7MSdyZ802_WFcvfpRmr00aNWVfjIH6rqMaD_TrJCMhUHA4sEJ7hbPts5PVJsO5-&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTLh7RvjlD-W-3RsDSd1fPhN6WA-o_YOgAdSDk2qgmb44J2z0gzj6IkM7MSdyZ802_WFcvfpRmr00aNWVfjIH6rqMaD_TrJCMhUHA4sEJ7hbPts5PVJsO5-&usqp=CAE', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR4YmWcE_E3RlwL7D85FZ_C9UHGJZ8eCBorIFJSSPllNGtYLqHZcbTJ7FVOXEqOzL_SH-pddtDHP01Ahv5_kGQ1qdnhh94jG68Ve8sKDWON0ZzHuap17Hg8AQ&usqp=CAE', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR4YmWcE_E3RlwL7D85FZ_C9UHGJZ8eCBorIFJSSPllNGtYLqHZcbTJ7FVOXEqOzL_SH-pddtDHP01Ahv5_kGQ1qdnhh94jG68Ve8sKDWON0ZzHuap17Hg8AQ&usqp=CAE', 'https://m.media-amazon.com/images/I/81Rz8SxtiJL.jpg', 'https://m.media-amazon.com/images/I/81Rz8SxtiJL.jpg',
+    'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRYBdja5YJ0Cvxl6tr3lBCqo0Yu0y_a5kVNR2fmQcsNLG6ljylsAYeIsFxk3zXn7kY6SsgMCkCbwqTOUuDOdroYW8LiK6TmqJIQK8hxpfFU1z8hzqWNpuAv&usqp=CAE', 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRYBdja5YJ0Cvxl6tr3lBCqo0Yu0y_a5kVNR2fmQcsNLG6ljylsAYeIsFxk3zXn7kY6SsgMCkCbwqTOUuDOdroYW8LiK6TmqJIQK8hxpfFU1z8hzqWNpuAv&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmPxjfiWbDTUD_quMmIyUy-84xcJNXzj3fdcZNSte30JsAJO291m3cc0_xjIe_IRg5DYqIH8yY8RGmKaeJIJL1oIcNIG2chgOIdPnDiB98SYZjIlyhlS0g&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmPxjfiWbDTUD_quMmIyUy-84xcJNXzj3fdcZNSte30JsAJO291m3cc0_xjIe_IRg5DYqIH8yY8RGmKaeJIJL1oIcNIG2chgOIdPnDiB98SYZjIlyhlS0g&usqp=CAE'
+  ];
+const filteredList = ['fa-html5', 'fa-css3-alt', 'fa-js-square', 'fa-npm', 'fa-react', 'fa-node-js', 'fa-gulp', 'fa-github'];
+const halfStar = "fas fa-star-half-alt";
+const emptyStar = "far fa-star";
+const fullSar = "fas fa-star stars";
+
+// ------------------------
+//      The Game
+// ------------------------
+
+// start game when clicked
+startBtn.addEventListener('click', function(){
+    // 1. hide the btn
+    this.classList.add('hide-start-btn');
+    // 2. start the game
+    game();
+});
+
+// Part 3: When game completes add option to play again
+btnReplay.addEventListener('click', nextPage);
+resetButton.addEventListener('click', replayTheGame);
+
+
+// ------------------------
+//      Functions
+// ------------------------
+function nextPage(){
+    window.location.replace(".chocolate2.html");
+}
+// game function
+function game() {
+    // Part 1. Shuffle the cards
+    letsShuffleThis();
+
+    // Part 2: set the timer: timer function taken from sltackoverflow: https://stackoverflow.com/a/29972322
+    startTime = Date.now();
+    setInterval(function () {
+        const delta = Date.now() - startTime; // milliseconds elapsed since start
+        seconds = (Math.floor(delta / 1000)); // in seconds
+        timerContainer.textContent = seconds;
+    }, 1000); // update about every second
+
+    // Part 3: add the flipping functionality to the deck of cards
+    //  make use of the bubbling of events and attach the listener to the parent
+    deck.addEventListener('click', cardClickHandler)
+}
+
+// Function to shuffle a list of class names and then attaches them to a card
+function letsShuffleThis() {
+    
+      const shuffledImages = shuffle([...images]);
+      document.querySelectorAll('.card .back img').forEach((img, index) => {
+          img.src = shuffledImages[index];
+      });
+}
+
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+      return array.sort(() => 0.5 - Math.random());
+}
+
+// function to replay the game
+function replayTheGame() {
+    // hide message again
+    hideWin();
+    // remove any disabled elements
+    document.querySelectorAll('.cant-click-this').forEach(function(el) {
+        el.classList.remove('cant-click-this');
+    });
+    // remove any flipped classes
+    document.querySelectorAll('.card-container').forEach(function (el) {
+        flipDown(el);
+    });
+    // reset the variables
+    resetGame();
+
+    // reset UI
+    resetUI();
+
+    // play again
+    game();
+}
+
+// function reset start game
+function resetGame() {
+    // reset the global variables
+    cardsCollected = [];
+    DeckOfCards = [];
+    cardOneElement = null;
+    cardTwoElement = null;
+    startTime = null;
+    currentTurn = 0;
+    gameWon = false;
+    seconds = 0;
+    moves = 0;
+    stars = 3;
+}
+
+// function that handles the card click event
+function cardClickHandler(e) {
+    console.log('card clicked')
+    const cardIsNotAlreadyChosen = e.target.parentNode != cardOneElement;
+    if (!gameWon && e.target.classList.contains('card-face') && cardIsNotAlreadyChosen) {
+        checkStats(e.target.parentNode);
+        flipUp(e.target.parentNode);
+    }
+}
+
+// functions to assigning values and check stats
+function checkStats(el) {
+    // console.log('CARD_1', cardOneElement)
+    // console.log('CARD_2', cardTwoElement)
+    // assign pointers to elements based on the turn number
+    switch (currentTurn) {
+        case 0:
+            cardOneElement = el;
+            currentTurn += 1;
+            break;
+        case 1:
+            cardTwoElement = el;
+            break;
+    }
+
+    if (cardOneElement && cardTwoElement) {
+        disableClick(deck);
+        // disable the deck
+        setTimeout(function(){
+            // re-enable it in a while
+            areTheyEqual()
+        }, 1000);
+    }
+
+}
+
+// function to check their euality and handels the result
+function areTheyEqual() {
+
+    // check class list -> to get the value of teh faced down card
+    const cardOneValue = cardOneElement.innerHTML.trim();
+    const cardTwoValue = cardTwoElement.innerHTML.trim();
+
+    // check if both classes are equal and that the item isn't in the list to begin with
+    if (!cardsCollected.includes(cardOneValue) && (cardOneValue === cardTwoValue)) { // if they are equal
+        equal(cardOneValue, cardTwoValue);
+    } else {
+        notEqual();
+    }
+    // increase move count
+    moves += 1;
+    starSetter();
+    updateUI();
+
+    // reset the round back to zero
+    currentTurn = 0;
+
+    // check if all cards flipped open
+    if (cardsCollected.length === 16) {
+        gameWon = true;
+        setTimeout(winMessage, 300);
+    }
+}
+
+// function to handel what happenes when cards match
+function equal(itemOne, itemTwo) {
+    // 1. add them to the array of flipped classes
+    cardsCollected.push(itemOne, itemTwo);
+    // 2. TO DO: add animation UI for correct result
+    correct(cardOneElement);
+    correct(cardTwoElement);
+    // remove class from element
+    setTimeout(function () {
+        removeCorrect(cardOneElement)
+    }, 350);
+    setTimeout(function () {
+        removeCorrect(cardTwoElement)
+    }, 350);
+    // 3. disable the element from being clicked
+    disableClick(cardOneElement);
+    disableClick(cardTwoElement);
+    // 4. reset element pointers
+    setTimeout(resetElementPointer, 300);
+}
+
+// function to handel cards not matching
+function notEqual() {
+    // 1. TO DO: add animation UI for wrong match
+    wrong(cardOneElement);
+    wrong(cardTwoElement);
+    // 2. flip the card back down
+    setTimeout(function () {
+        removeWrong(cardOneElement);
+        flipDown(cardOneElement);
+     }, 250);
+    setTimeout(function () {
+        removeWrong(cardTwoElement);
+        flipDown(cardTwoElement);
+    }, 250);
+    // 3. reset element pointers
+    setTimeout(resetElementPointer, 300);
+}
+
+// function to set stars
+function starSetter() {
+    // moves less than or equal 9 -> 3 stars
+    // moves between 10 and 15 -> 2.5 stars
+    if (moves >= 10 && moves <= 15) {
+        starsList[2].className = halfStar;
+        stars = 2.5;
+    }
+    // moves between 16 and 20 -> 2 stars
+    else if (moves >= 16 && moves <= 20) {
+        starsList[2].className = emptyStar;
+        stars = 2;
+    }
+    // moves between 21 and 24 -> 1.5 stars
+    else if (moves >= 21 && moves <= 24) {
+        starsList[1].className = halfStar;
+        stars = 1.5;
+    }
+    // moves between 25 and 28 -> 1 star
+    else if (moves >= 25 && moves <= 28) {
+        starsList[1].className = emptyStar;
+        stars = 1;
+    }
+    // moves between 29 and more -> 0.5 stars
+    else if (moves >= 29) {
+        starsList[0].className = halfStar;
+        stars = 0.5;
+    }
+}
+
+// function display win message
+function winMessage() {
+    // updating the UI for the end screen to display the correct values
+    moveHolder.textContent = moves;
+    starHolder.textContent = stars;
+    secondsContainer.textContent = seconds;
+
+    // add the class that will view the wining screen
+    winContainer.classList.add('win-screen');
+
+    // remove event listener
+    deck.removeEventListener('click', cardClickHandler);
+}
+
+// function hide win message
+function hideWin() {
+    winContainer.classList.remove('win-screen');
+}
+
+// function to flip the card up
+function flipUp(element) {
+    element.classList.add('flipped');
+}
+
+// function to flip the card down
+function flipDown(element) {
+    element.classList.remove('flipped');
+}
+
+// function to add correct animation
+function correct(el) {
+    el.classList.add('correct');
+}
+
+function removeCorrect(el) {
+    el.classList.remove('correct');
+}
+
+// function to add wrong animation
+function wrong(el) {
+    el.classList.add('wrong');
+}
+
+function removeWrong(el) {
+    el.classList.remove('wrong');
+}
+
+//  function to disable element from being clicked
+function disableClick(el) {
+    el.classList.add('cant-click-this');
+}
+
+// function to re-enable elements to be clicked
+function enableClick(el) {
+    console.log('clicks enabled')
+    el.classList.remove('cant-click-this');
+}
+
+// function update UI
+function updateUI() {
+    movesContainer.textContent = moves;
+}
+
+function resetUI() {
+    movesContainer.textContent = moves;
+    starsList.forEach(function(el) {
+        el.className = fullSar;
+    });
+    timerContainer.textContent = "";
+}
+
+// function to reset the variables that holds a pointer to a DOM element
+function resetElementPointer() {
+    cardOneElement = null;
+    cardTwoElement = null;
+    // enable clicks on the deck of cards
+    enableClick(deck)
+}
+
+
+
+
+    </script>
+</body>
+</html>
