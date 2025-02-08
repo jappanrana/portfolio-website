@@ -1,1 +1,298 @@
-<
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chocolate day</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=Benne&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p, h1, h2, h3 {
+  padding: 0;
+  margin: 0;
+  color: #333;
+}
+
+.chocolate {
+  position: relative;
+}
+
+.package {
+  position: absolute;
+  top: -18px;
+  left: -13px;
+  width: 741px;
+  height: 361px;
+  background: #d71d54;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+.package.removed {
+  left: -200px;
+  opacity: 0;
+  transition: left 3s, opacity 1s 2s ease-in-out;
+}
+.package .package-content {
+  width: 95%;
+  height: 90%;
+  background: #4c2926;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.package h1 {
+  font-family: "Berkshire Swash";
+  font-size: 120px;
+  color: white;
+  text-transform: uppercase;
+  transform: rotate(-20deg) translate(-80px, 45px);
+}
+.package h2 {
+  font-family: "Berkshire Swash";
+  font-size: 100px;
+  color: #d8c63f;
+  text-transform: uppercase;
+  transform: rotate(-20deg) translate(420px, 30px);
+}
+
+.chocolate-bar {
+  width: 735px;
+  height: 355px;
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  background: #39160e;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: -1;
+}
+.chocolate-bar .bar-piece {
+  width: 20%;
+  height: 20%;
+  box-shadow: inset 0px 0px 6px 7px #39160e;
+  background: #442c28;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chocolate-bar .bar-piece span {
+    color: #76141470;
+    font-size: 28px;
+    text-shadow: 2px 2px #1e0909;
+  display: block;
+  width: 70%;
+  height: 50%;
+  box-shadow: 0px 0px 7px 4px #39160e;
+  background: #39160e;
+}
+.golden-ticket.winner {
+  opacity: 1;
+}
+.container {
+  display: flex;
+}
+
+.try-again {
+  margin-left: 20px;
+  display: block;
+  border: none;
+  color: grey;
+  cursor: pointer;
+}
+
+.golden-ticket {
+  width: 715px;
+  height: 325px;
+  opacity: 0;
+  z-index: 5;
+    background: linear-gradient(135deg, #f9d976, #f39c12);
+    color: #3e2723;
+    border: 10px solid #8b5e3b;
+    padding: 20px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.highlight {
+    font-style: italic;
+    font-weight: bold;
+    color: #8b0000;
+}
+
+.greeting {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+ul {
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+.disclaimer {
+    font-style: italic;
+    font-size: 12px;
+    color: #6d4c41;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="chocolate">
+    <div class="package">
+      <div class="package-content">
+        <h1>Jappan</h1>
+        <h2>Bar</h2>
+      </div>
+    </div>
+    <div class="chocolate-bar">
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+      <div class="bar-piece">
+        <span>CHOCO<span/>
+      </div>
+    </div>
+    <div class="golden-ticket">
+      <div class="golden-ticket-content">
+        <h1><span class="highlight">Jappan’s</span> GOLDEN TICKET</h1>
+        <p class="greeting">🎉 Congratulations, you lucky winner! 🎉</p>
+        <p>You have officially been granted <b>unlimited chocolate cravings</b>—redeemable anytime, no questions asked (except maybe: <i>Again?</i> 😉).</p>
+        
+        <h2>Terms & Conditions:</h2>
+        <ul>
+            <li>Show this ticket (or your cutest pout) for a <b>chocolate delivery</b>.</li>
+            <li>Valid <b>24/7</b>—because chocolate emergencies are real.</li>
+            <li>No expiration—your sweetness is forever. ❤️</li>
+            <li>Excessive use may result in extreme cuddles. 😘</li>
+        </ul>
+
+        <p class="disclaimer">💡 <i>*Hugs & kisses are already yours by default.*</i></p>
+        <p class="footer">*Now, what are you craving?* 🍫😏</p>
+      </div>
+    </div>
+  </div>
+  <i class="try-again fas fa-redo-alt"></i>
+</div>
+<script type="text/javascript">
+    const package = document.querySelector('.package');
+const ticket = document.querySelector('.golden-ticket')
+
+package.onclick = () => {
+  package.classList.add('removed')
+  
+  if(Math.random() > 0.5) {
+    ticket.classList.add('winner')
+  }
+}
+
+const retry = document.querySelector('.try-again');
+
+retry.onclick = () => {
+  package.classList.remove('removed')
+  ticket.classList.remove('winner')
+}
+</script>
+</body>
+</html>
