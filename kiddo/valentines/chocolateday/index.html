@@ -417,7 +417,7 @@ body {
     <div class="win">
         <h1>Congratulations!</h1>
         <h3>- You won! -</h3>
-        <p>It took you about <span class="seconds">32</span> Seconds to comeplete the game <br> with <span class="moves">17</span> Moves and <span class="star">1</span> Stars.<br>Woooohoooooo!</p>
+        <p>It took you about <span class="seconds">32</span> Seconds to complete the game <br> with <span class="moves">17</span> Moves and <span class="star">1</span> Stars.<br>Woooohoooooo!</p>
         <button class="replay">Collect Rewards!</button>
     </div>
     <script type="text/javascript">
@@ -444,7 +444,7 @@ const secondsContainer = document.querySelector('.seconds');
 
 
   const images = [
-    'https://www.koyambedumarket.in/uploads/product/-937557341.png', 'https://www.koyambedumarket.in/uploads/product/-937557341.png', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT6Q04_DxY5frjB3kUpZDM1aSwKPyUWrR2t6n3fSa_DDSo0VrkaHz1IokHGJ69t5jSdr_JmqFqg5RkjITufUzjeYmyx6aFoKL0cuaQL-Eq2EfcZUj8tgP26_g', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT6Q04_DxY5frjB3kUpZDM1aSwKPyUWrR2t6n3fSa_DDSo0VrkaHz1IokHGJ69t5jSdr_JmqFqg5RkjITufUzjeYmyx6aFoKL0cuaQL-Eq2EfcZUj8tgP26_g', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOz6YAvYrAqa_r1osdox-kCa15_yXiZEBSQ9N0PFu9FE1VCyAiuoFozOLcpVTivVQ9d24c9pC9wjE75MUR0_5eN_YloC7YWSFa_V74xzVrmrjrDmcjXFNDKw&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOz6YAvYrAqa_r1osdox-kCa15_yXiZEBSQ9N0PFu9FE1VCyAiuoFozOLcpVTivVQ9d24c9pC9wjE75MUR0_5eN_YloC7YWSFa_V74xzVrmrjrDmcjXFNDKw&usqp=CAE',
+    'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTcqS2TWXKsItHAhFHNED21nDLzvHaGwu0gqO_rkfe0sfS4nQeSivBHLL8KqZT4a6bY4IZrk1wYyvFOZP91VaMluEF6Xe23ANtnwaJe6j7c79RL0MQdQONgUw&usqp=CAE', 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTcqS2TWXKsItHAhFHNED21nDLzvHaGwu0gqO_rkfe0sfS4nQeSivBHLL8KqZT4a6bY4IZrk1wYyvFOZP91VaMluEF6Xe23ANtnwaJe6j7c79RL0MQdQONgUw&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT6Q04_DxY5frjB3kUpZDM1aSwKPyUWrR2t6n3fSa_DDSo0VrkaHz1IokHGJ69t5jSdr_JmqFqg5RkjITufUzjeYmyx6aFoKL0cuaQL-Eq2EfcZUj8tgP26_g', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT6Q04_DxY5frjB3kUpZDM1aSwKPyUWrR2t6n3fSa_DDSo0VrkaHz1IokHGJ69t5jSdr_JmqFqg5RkjITufUzjeYmyx6aFoKL0cuaQL-Eq2EfcZUj8tgP26_g', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOz6YAvYrAqa_r1osdox-kCa15_yXiZEBSQ9N0PFu9FE1VCyAiuoFozOLcpVTivVQ9d24c9pC9wjE75MUR0_5eN_YloC7YWSFa_V74xzVrmrjrDmcjXFNDKw&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOz6YAvYrAqa_r1osdox-kCa15_yXiZEBSQ9N0PFu9FE1VCyAiuoFozOLcpVTivVQ9d24c9pC9wjE75MUR0_5eN_YloC7YWSFa_V74xzVrmrjrDmcjXFNDKw&usqp=CAE',
     'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTLh7RvjlD-W-3RsDSd1fPhN6WA-o_YOgAdSDk2qgmb44J2z0gzj6IkM7MSdyZ802_WFcvfpRmr00aNWVfjIH6rqMaD_TrJCMhUHA4sEJ7hbPts5PVJsO5-&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTLh7RvjlD-W-3RsDSd1fPhN6WA-o_YOgAdSDk2qgmb44J2z0gzj6IkM7MSdyZ802_WFcvfpRmr00aNWVfjIH6rqMaD_TrJCMhUHA4sEJ7hbPts5PVJsO5-&usqp=CAE', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR4YmWcE_E3RlwL7D85FZ_C9UHGJZ8eCBorIFJSSPllNGtYLqHZcbTJ7FVOXEqOzL_SH-pddtDHP01Ahv5_kGQ1qdnhh94jG68Ve8sKDWON0ZzHuap17Hg8AQ&usqp=CAE', 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR4YmWcE_E3RlwL7D85FZ_C9UHGJZ8eCBorIFJSSPllNGtYLqHZcbTJ7FVOXEqOzL_SH-pddtDHP01Ahv5_kGQ1qdnhh94jG68Ve8sKDWON0ZzHuap17Hg8AQ&usqp=CAE', 'https://m.media-amazon.com/images/I/81Rz8SxtiJL.jpg', 'https://m.media-amazon.com/images/I/81Rz8SxtiJL.jpg',
     'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRYBdja5YJ0Cvxl6tr3lBCqo0Yu0y_a5kVNR2fmQcsNLG6ljylsAYeIsFxk3zXn7kY6SsgMCkCbwqTOUuDOdroYW8LiK6TmqJIQK8hxpfFU1z8hzqWNpuAv&usqp=CAE', 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRYBdja5YJ0Cvxl6tr3lBCqo0Yu0y_a5kVNR2fmQcsNLG6ljylsAYeIsFxk3zXn7kY6SsgMCkCbwqTOUuDOdroYW8LiK6TmqJIQK8hxpfFU1z8hzqWNpuAv&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmPxjfiWbDTUD_quMmIyUy-84xcJNXzj3fdcZNSte30JsAJO291m3cc0_xjIe_IRg5DYqIH8yY8RGmKaeJIJL1oIcNIG2chgOIdPnDiB98SYZjIlyhlS0g&usqp=CAE', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmPxjfiWbDTUD_quMmIyUy-84xcJNXzj3fdcZNSte30JsAJO291m3cc0_xjIe_IRg5DYqIH8yY8RGmKaeJIJL1oIcNIG2chgOIdPnDiB98SYZjIlyhlS0g&usqp=CAE'
   ];
@@ -474,7 +474,7 @@ resetButton.addEventListener('click', replayTheGame);
 //      Functions
 // ------------------------
 function nextPage(){
-    window.location.replace(".chocolate2.html");
+    window.location.replace("./chocolate2.html");
 }
 // game function
 function game() {
