@@ -112,12 +112,32 @@ p, h1, h2, h3 {
   cursor: pointer;
 }
 
+@keyframes MoveBackgroundPosition { 
+  0% {
+      background-position: 0% 50%
+  }
+  
+  50% {
+    background-position: 100% 50%
+  }
+  
+  100% {
+    background-position: 0% 50%
+  }
+}
+
 .golden-ticket {
   width: 715px;
   height: 325px;
   opacity: 0;
   z-index: 5;
-    background: linear-gradient(135deg, #f9d976, #f39c12);
+  background-image: repeating-linear-gradient(45deg, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%);
+  background-size: 150%;
+/*  -webkit-background-clip: text;*/
+/*  -webkit-text-fill-color: transparent;*/
+  filter: drop-shadow(0 0 1px rgba(255, 200, 0, .3));
+  animation: MoveBackgroundPosition 6s ease-in-out infinite;
+/*    background: linear-gradient(135deg, #f9d976, #f39c12);*/
     color: #3e2723;
     border: 10px solid #8b5e3b;
     padding: 20px;
@@ -131,6 +151,20 @@ p, h1, h2, h3 {
     box-sizing: border-box;
 }
 
+
+@keyframes MoveBackgroundPosition { 
+  0% {
+      background-position: 0% 50%
+  }
+  
+  50% {
+    background-position: 100% 50%
+  }
+  
+  100% {
+    background-position: 0% 50%
+  }
+}
 h1 {
     text-align: center;
     font-size: 22px;
