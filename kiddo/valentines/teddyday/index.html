@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy day</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .maze-container { display: grid; border: 1px solid #ff4d6d; grid-template-columns: repeat(10, 40px); gap: 2px; margin: 20px auto; width: fit-content; }
+        .cell { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .wall { background-color: #ff4d6d; }
+        .player { font-size: 30px; }
+        .end { font-size: 30px; }
+        body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.heart-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    font-size: 20px;
+    color: #ff4d6d;
+    animation: floatUp 5s linear infinite, fadeOut 5s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes fadeOut {
+    0%, 70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="heart-container"></div>
+    <p>Use Arrow Keys to Move</p>
+    <div class="maze-container" id="maze"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const heartContainer = document.querySelector(".heart-container");
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "&#10084;"; // Unicode heart symbol
+        heart.classList.add("heart");
+
+        // Random size
+        let size = Math.random() * 20 + 10;
+        heart.style.fontSize = `${size}px`;
+
+        // Random position
+        heart.style.left = Math.random() * 100 + "vw";
+
+        // Random animation duration
+        let duration = Math.random() * 3 + 2;
+        heart.style.animationDuration = `${duration}s`;
+
+        heartContainer.appendChild(heart);
+
+        // Remove heart after animation
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+
+    // Generate hearts every 500ms
+    setInterval(createHeart, 500);
+});
+
+
+        const mazeLayout = [
+            [0, 1, 0, 0, 0, 1, 0, 1, 0, 0],
+            [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+            [0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+            [1, 1, 0, 1, 1, 1, 0, 1, 0, 1],
+            [0, 0, 0, 0, 0, 1, 0, 1, 0, 0],
+            [0, 1, 1, 1, 0, 1, 0, 1, 1, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+            [1, 1, 1, 1, 1, 0, 1, 0, 0, 0]
+        ];
+        
+        const mazeContainer = document.getElementById('maze');
+        let playerPosition = { x: 0, y: 0 };
+        
+        function renderMaze() {
+            mazeContainer.innerHTML = '';
+            for (let y = 0; y < 10; y++) {
+                for (let x = 0; x < 10; x++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('cell');
+                    if (mazeLayout[y][x] === 1) cell.classList.add('wall');
+                    if (x === playerPosition.x && y === playerPosition.y) {
+                        cell.classList.add('player');
+                        cell.innerHTML = '👩🏻';
+                    }
+                    if (x === 9 && y === 9) {
+                        cell.classList.add('end');
+                        cell.innerHTML = '🎁';
+                    }
+                    mazeContainer.appendChild(cell);
+                }
+            }
+        }
+        
+        function movePlayer(dx, dy) {
+            const newX = playerPosition.x + dx;
+            const newY = playerPosition.y + dy;
+            if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10 && mazeLayout[newY][newX] === 0) {
+                playerPosition.x = newX;
+                playerPosition.y = newY;
+                renderMaze();
+                checkWin();
+            }
+        }
+        
+        function checkWin() {
+            if (playerPosition.x === 9 && playerPosition.y === 9) {
+                window.location.replace('./teddy.html');
+            }
+        }
+        
+        document.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case 'ArrowUp': movePlayer(0, -1); break;
+                case 'ArrowDown': movePlayer(0, 1); break;
+                case 'ArrowLeft': movePlayer(-1, 0); break;
+                case 'ArrowRight': movePlayer(1, 0); break;
+            }
+        });
+        
+        renderMaze();
+    </script>
+</body>
+</html>
