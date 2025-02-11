@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Hug Countdown</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            transition: background 0.5s ease-in-out;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        #hugMessage {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Hug Countdown</h1>
+        <p>Next Hug in:</p>
+        <div id="countdown">00:00:00</div>
+        <div id="hugMessage">💖 Loading... 💖</div>
+    </div>
+
+    <script>
+        const hugTypes = [
+            { message: "Bear Hug 🐻 – For when I miss you the most!", color: "#ffcccb" },
+            { message: "Warm Hug 🔥 – For the cold lonely nights!", color: "#ffd700" },
+            { message: "Squeeze Hug 🤗 – For when you need all my love!", color: "#add8e6" }
+        ];
+
+        const targetDate = new Date();
+        targetDate.setMinutes(targetDate.getMinutes() + 1); // Set countdown to 1 hour later
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("countdown").textContent = "Hug Time! 💕";
+                return;
+            }
+
+            const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+            const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+            const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+
+            document.getElementById("countdown").textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        function changeHugType() {
+            const hug = hugTypes[Math.floor(Math.random() * hugTypes.length)];
+            document.getElementById("hugMessage").textContent = hug.message;
+            document.body.style.background = hug.color;
+        }
+
+        setInterval(updateCountdown, 1000);
+        setInterval(changeHugType, 5000);
+
+        updateCountdown();
+        changeHugType();
+    </script>
+</body>
+</html>
