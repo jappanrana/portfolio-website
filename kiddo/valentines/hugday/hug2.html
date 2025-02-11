@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Hug Simulator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #ffdde1;
+            overflow: hidden;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: transform 0.1s;
+        }
+        .hug-container {
+            position: relative;
+        }
+        .hug-message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .hug-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .hug-button:hover {
+            background: #ff1e4d;
+        }
+        .hearts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: red;
+            transform: translate(-50%, -50%) scale(1);
+            clip-path: polygon(50% 0%, 100% 35%, 85% 80%, 50% 100%, 15% 80%, 0% 35%);
+            opacity: 1;
+            animation: float 2s linear infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -150%) scale(1.5);
+                opacity: 0;
+            }
+        }
+        .shake {
+            animation: shake 0.2s ease-in-out 3;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hug-container">
+        <img src="data:image/jpeg;base64,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" alt="Hugging Characters" width="200"> 
+        <div class="hug-message">Even miles apart, my hugs will always reach you ❤️</div>
+    </div>
+    <button class="hug-button" onclick="sendHug()">Send Virtual Hug 🤗</button>
+    
+    <script>
+        function sendHug() {
+            document.body.classList.add('shake');
+            setTimeout(() => document.body.classList.remove('shake'), 600);
+            document.querySelector('.hug-message').style.opacity = 1;
+            
+            for (let i = 0; i < 15; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('hearts');
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${1.5 + Math.random()}s`;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
+        }
+    </script>
+</body>
+</html>
