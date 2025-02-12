@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiss Slot Machine 💖🎰</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .slot-machine {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .slot {
+            width: 80px;
+            height: 80px;
+            font-size: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            color: black;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .button {
+            background-color: #ff007f;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.2em;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #ff4081;
+        }
+        #message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kiss Slot Machine 💖🎰</h1>
+    <div class="slot-machine">
+        <div class="slot" id="slot1">❤️</div>
+        <div class="slot" id="slot2">💋</div>
+        <div class="slot" id="slot3">😘</div>
+    </div>
+    <br>
+    <button class="button" onclick="spinSlots()">Spin</button>
+    <p id="message"></p>
+    
+    <script>
+        const emojis = ["💋", "❤️", "😘", "😍", "🥰", "💕"];
+        const messages = {
+            "💋💋💋": "A passionate kiss just for you! 💋🔥",
+            "❤️❤️❤️": "Sending all my love and kisses! ❤️😘",
+            "😘😘😘": "A thousand sweet kisses for you! 😘💕",
+            "😍😍😍": "You make my heart race! 😍💖",
+            "🥰🥰🥰": "A cozy, warm hug and a kiss! 🥰💋",
+            "💕💕💕": "You're my love jackpot! 💕🎰",
+        };
+        
+        function spinSlots() {
+            let slot1 = document.getElementById("slot1");
+            let slot2 = document.getElementById("slot2");
+            let slot3 = document.getElementById("slot3");
+            
+            function getRandomCombination() {
+                if (Math.random() < 0.6) { // 60% chance to get a matching set
+                    let chosenEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                    return [chosenEmoji, chosenEmoji, chosenEmoji];
+                } else { // 40% chance for a random mix
+                    return [
+                        emojis[Math.floor(Math.random() * emojis.length)],
+                        emojis[Math.floor(Math.random() * emojis.length)],
+                        emojis[Math.floor(Math.random() * emojis.length)]
+                    ];
+                }
+            }
+            
+            let [result1, result2, result3] = getRandomCombination();
+            
+            slot1.textContent = result1;
+            slot2.textContent = result2;
+            slot3.textContent = result3;
+            
+            let resultKey = result1 + result2 + result3;
+            document.getElementById("message").textContent = messages[resultKey] || "Try again! 🎰💔";
+        }
+    </script>
+</body>
+</html>
