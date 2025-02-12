@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiss the Heart 💋</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-image: url('data:image/svg+xml,%3Csvg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z" fill="%239C92AC" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');
+        }
+        h1 {
+            color: #d6336c;
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/cover;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #d6336c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Catch the Heart 💖</h1>
+    <p>Click on the heart to get a surprise message!</p>
+    <div class="heart" id="heart"></div>
+    <p id="message"></p>
+
+    <script>
+        const heart = document.getElementById("heart");
+        const message = document.getElementById("message");
+        const messages = [
+            "You got me! Now I owe you 10 kisses! 😘",
+            "Nice catch! One step closer to a magical kiss. 💋",
+            "Wow! You must really love kisses! 😍",
+            "Every time you catch me, my heart skips a beat! ❤️",
+            "Oops! You caught me, now prepare for a big smooch! 😘",
+            "Are you a kiss magnet? Because you keep winning! 💖",
+            "Kiss incoming in 3...2...1... 😘",
+            "This heart is hard to catch, just like my love for you! 😜",
+            "You have quick hands... I like that. 😉",
+            "Your reward? A million virtual kisses! 😘😘😘",
+            "You're too good at this! Are you a heart-catching expert? 😏",
+            "I surrender! My lips are all yours! 💋",
+            "This game is rigged! You get infinite kisses now! 🥰",
+            "Wow, you’re really after my heart, huh? ❤️",
+            "Each click = 1 kiss. Now start collecting! 💕"
+        ];
+        
+        let moveCount = 0;
+        function moveHeart() {
+            if (moveCount < 3) {
+                const x = Math.random() * (window.innerWidth - 50);
+                const y = Math.random() * (window.innerHeight - 50);
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+                moveCount++;
+            }
+        }
+        
+        heart.addEventListener("mouseover", moveHeart);
+        heart.addEventListener("click", () => {
+            message.textContent = messages[Math.floor(Math.random() * messages.length)];
+          moveCount = 0;
+            moveHeart();
+        });
+        
+        moveHeart();
+    </script>
+</body>
+</html>
