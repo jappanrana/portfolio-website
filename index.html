@@ -1,777 +1,574 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Jappan Rana-Portfolio-Develop, Debug and Repeat</title>
-	<meta name="description" content="What service are you looking for? Developing new website, Digital marketing, Data analysis for business or Social media handler.One stop for all your requirements at very affordable price.">
-	<meta property="og:description" content="What service are you looking for? Developing new website, Digital marketing, Data analysis for business or Social media handler.One stop for all your requirements at very affordable price.">
-	<meta name="keywords" content="jappan rana, jappan portfolio, jappan github, jappan rana github, Programmer, Game Dev, Data Analyst, web developer, web designer, Social media Handler, mumbai, vasai, 401202, 400001">
-	<meta name="author" content="Jappan Rana">
-<!-- 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-	<meta name="robots" content="nofollow noarchive nocache notranslate noimageindex max-snippet:200">
-	<meta name="og:title" property="og:title" content="Jappan Rana-Portfolio-Develop, Debug and Repeat">
-	<link rel="canonical" href="https://jappanrana.github.io/portfolio-website/">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jappan Rana | Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .parallax-bg {
+    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .floating-link:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .glow:hover {
+    box-shadow: 0 0 10px #3b82f6, 0 0 40px #3b82f6;
+  }
+
+  .perspective {
+    perspective: 1000px;
+  }
+
+  /* Modal Pop Animation */
+  @keyframes modalPop {
+    0% {
+      transform: scale(0.8) translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-modal-pop > div {
+    animation: modalPop 0.4s ease-out;
+  }
+
+  /* Moving Border Effect */
+  .animate-border-move {
+    background-size: 300% 300%;
+    animation: borderMove 5s linear infinite;
+  }
+
+  @keyframes borderMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Scrollbar Removal */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Carousel Animation */
+  @keyframes carouselNew {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-carousel-new {
+    animation: carouselNew 40s linear infinite;
+  }
+
+  /* Scrolling Stars Background */
+  .scrolling-stars {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: scrollStars 100s linear infinite;
+  }
+
+  @keyframes scrollStars {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -1000px 1000px;
+    }
+  }
+</style>
+
 </head>
-<body>
-	<!--CSS Spinner-->
-	<div class="spinner-wrapper">
-		<div class="loader">
-		  <div class="loader__bar"></div>
-		  <div class="loader__bar"></div>
-		  <div class="loader__bar"></div>
-		  <div class="loader__bar"></div>
-		  <div class="loader__bar"></div>
-		  <div class="loader__ball"></div>
-		</div>
-	</div>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Jappan Rana</a>
-		<div class="dark-mode-switch">
-		<!-- Rounded switch -->
-			<i class="fa fa-sun-o" aria-hidden="true"></i>
-				<label class="switch">
-					<input type="checkbox" checked>
-					<span class="slider round" onclick="theme()"></span>
-				</label>
-			<i class="fa fa-moon-o tmp" aria-hidden="true"></i>
-		</div>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    		<span class="navbar-toggler-icon"></span>
-   		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#about">About</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="#education">Education</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="#skill">Skills</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="#projects">Projects</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="#services">Services</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="#contact">Contact me</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	<section class="intro-bg">
-		<div class="content">
-			<h3>Hello, I am</h3>
-			<h1>Jappan Rana</h1>
-			<h4>A 
-				<span
-				class="txt-rotate"
-				data-period="2000"
-				data-rotate='[ "Programmer.", "Game Dev.", "Hacker.", "Data Analyst.", "Problem solver.", "Web Dev.", "Teacher.", "Stage Speaker.", "Social media Handler." ]'></span>
-			</h4>
-			<script>
-				var TxtRotate = function(el, toRotate, period) {
-					this.toRotate = toRotate;
-					this.el = el;
-					this.loopNum = 0;
-					this.period = parseInt(period, 10) || 2000;
-					this.txt = '';
-					this.tick();
-					this.isDeleting = false;
-				};
+<body class="bg-gray-950 text-white font-sans">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur bg-gray-900/80 border-b border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0 text-xl font-bold text-blue-500 tracking-wide">Jappan</div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#about" class="floating-link transition-all duration-300 text-gray-300 hover:text-white">About</a>
+          <a href="#skills" class="floating-link transition-all duration-300 text-gray-300 hover:text-white">Skills</a>
+          <a href="#projects" class="floating-link transition-all duration-300 text-gray-300 hover:text-white">Projects</a>
+          <a href="#experience" class="floating-link transition-all duration-300 text-gray-300 hover:text-white">Experience</a>
+          <a href="#education" class="floating-link transition-all duration-300 text-gray-300 hover:text-white">Education</a>
+          <a href="#contact" class="floating-link transition-all duration-300 text-gray-300 hover:text-white">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-				TxtRotate.prototype.tick = function() {
-					var i = this.loopNum % this.toRotate.length;
-					var fullTxt = this.toRotate[i];
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center parallax-bg overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-gray-900"></div>
+    <div class="relative z-10 text-center px-4 max-w-2xl animate-fade-in">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+        Hi, I'm Jappan Rana
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-6">Senior Android Developer | AI Enthusiast | Full-stack Explorer</p>
+      <a href="#projects" class="inline-block mt-4 px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 glow transition-all">
+        View My Work
+      </a>
+    </div>
+    <div class="absolute -top-10 left-10 animate-bounce-slow text-blue-600 text-4xl opacity-30">⚙️</div>
+    <div class="absolute top-1/2 right-20 animate-spin-slow text-pink-400 text-4xl opacity-30">📱</div>
+    <div class="absolute bottom-10 left-1/3 animate-float text-purple-500 text-4xl opacity-30">💡</div>
+  </section>
 
-					if (this.isDeleting) {
-						this.txt = fullTxt.substring(0, this.txt.length - 1);
-					} else {
-						this.txt = fullTxt.substring(0, this.txt.length + 1);
-					}
+  <!-- About Section -->
+<section id="about" class="py-20 bg-gray-900 border-t border-gray-800" data-aos="fade-up" data-aos-duration="1000">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right" data-aos-delay="200">
+      <img src="https://avatars.githubusercontent.com/u/99132869?v=4" alt="Jappan Rana" class="rounded-2xl shadow-lg w-72 mx-auto md:mx-0" />
+    </div>
+    <div class="md:w-1/2 text-center md:text-left" data-aos="fade-left" data-aos-delay="400">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">About Me</h2>
+      <p class="text-gray-300 mb-4">
+        I am a passionate and innovative developer with a strong inclination toward experimenting with and staying updated on the latest technologies. My experience spans a wide range of projects, including Android mobile apps, AOSP apps, TV apps, and web applications. I am currently focusing on the exciting fields of AI and ML, particularly using agents, A2A protocol, MCP, and other emerging technologies, exploring their potential to drive future of tech, I thrive at the intersection of performance and innovation.
+      </p>
+      <p class="text-gray-400 italic">
+        "My mission is to craft seamless technology experiences that not only empower users and ignite curiosity but also create a meaningful, positive impact on the everyday lives of millions."
+      </p>
+    </div>
+  </div>
+</section>
 
-					this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-gray-950 border-t border-gray-800 text-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Skills</h2>
+    
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3" data-aos="fade-up" data-aos-delay="100">
 
-					var that = this;
-					var delta = 300 - Math.random() * 100;
+      <!-- Skill Category Card -->
+      <div class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h3 class="text-xl font-semibold mb-4">Android Development</h3>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">Kotlin</span>
+          <span class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">Java</span>
+          <span class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">Jetpack Compose</span>
+          <span class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">AOSP</span>
+          <span class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">MVVM</span>
+          <span class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">Room</span>
+          <span class="bg-green-800 text-white text-xs px-3 py-1 rounded-full">Retrofit</span>
+        </div>
+        <div>
+          <p class="text-sm mb-1">Proficiency</p>
+          <div class="w-full bg-gray-800 rounded-full h-2.5">
+            <div class="bg-green-500 h-2.5 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+      </div>
 
-					if (this.isDeleting) { delta /= 2; }
+      <div class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h3 class="text-xl font-semibold mb-4">Full-Stack Development</h3>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-blue-800 text-white text-xs px-3 py-1 rounded-full">HTML</span>
+          <span class="bg-blue-800 text-white text-xs px-3 py-1 rounded-full">CSS</span>
+          <span class="bg-blue-800 text-white text-xs px-3 py-1 rounded-full">JavaScript</span>
+          <span class="bg-blue-800 text-white text-xs px-3 py-1 rounded-full">SQL</span>
+          <span class="bg-blue-800 text-white text-xs px-3 py-1 rounded-full">Firebase</span>
+          <span class="bg-blue-800 text-white text-xs px-3 py-1 rounded-full">Tailwind</span>
+          <span class="bg-blue-800 text-white text-xs px-3 py-1 rounded-full">PHP</span>
+        </div>
+        <div>
+          <p class="text-sm mb-1">Proficiency</p>
+          <div class="w-full bg-gray-800 rounded-full h-2.5">
+            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+          </div>
+        </div>
+      </div>
 
-					if (!this.isDeleting && this.txt === fullTxt) {
-						delta = this.period;
-						this.isDeleting = true;
-					} else if (this.isDeleting && this.txt === '') {
-						this.isDeleting = false;
-						this.loopNum++;
-						delta = 500;
-					}
+      <div class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h3 class="text-xl font-semibold mb-4">Emerging Tech</h3>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">AI</span>
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">AR</span>
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">BlockChain</span>
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">Cloud</span>
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">ML</span>
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">RPA</span>
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">Data Analytics</span>
+          <span class="bg-yellow-800 text-white text-xs px-3 py-1 rounded-full">Cyber Security</span>
+        </div>
+        <div>
+          <p class="text-sm mb-1">Proficiency</p>
+          <div class="w-full bg-gray-800 rounded-full h-2.5">
+            <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 40%"></div>
+          </div>
+        </div>
+      </div>
 
-					setTimeout(function() {
-						that.tick();
-						}, delta);
-					};
+      <div class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h3 class="text-xl font-semibold mb-4">Management Skills</h3>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-red-800 text-white text-xs px-3 py-1 rounded-full">Vision</span>
+          <span class="bg-red-800 text-white text-xs px-3 py-1 rounded-full">Innovation</span>
+          <span class="bg-red-800 text-white text-xs px-3 py-1 rounded-full">Collaboration</span>
+          <span class="bg-red-800 text-white text-xs px-3 py-1 rounded-full">Delegation</span>
+          <span class="bg-red-800 text-white text-xs px-3 py-1 rounded-full">Mentorship</span>
+          <span class="bg-red-800 text-white text-xs px-3 py-1 rounded-full">Timely Delivery</span>
+          <span class="bg-red-800 text-white text-xs px-3 py-1 rounded-full">Conflict Resolution</span>
+        </div>
+        <div>
+          <p class="text-sm mb-1">Proficiency</p>
+          <div class="w-full bg-gray-800 rounded-full h-2.5">
+            <div class="bg-red-500 h-2.5 rounded-full" style="width: 60%"></div>
+          </div>
+        </div>
+      </div>
 
-					window.onload = function() {
-						var elements = document.getElementsByClassName('txt-rotate');
-						for (var i=0; i<elements.length; i++) {
-							var toRotate = elements[i].getAttribute('data-rotate');
-							var period = elements[i].getAttribute('data-period');
-						if (toRotate) {
-							new TxtRotate(elements[i], JSON.parse(toRotate), period);
-						}
-					}
-					// INJECT CSS
-					var css = document.createElement("style");
-					css.type = "text/css";
-					css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-					document.body.appendChild(css);
-				};
-			</script>
-			<div class="text-center socials">
-				<a href="https://www.github.com/jappanrana/JappanCodes"><i class="fa fa-github-square" aria-hidden="true"></i></a>
-				<a href="https://www.instagram.com/_jappan_/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-				<a href="https://t.me/god_warrior_1/"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-				<a href="mailto: jappanrana@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-				<a href="https://www.facebook.com/jappan.rana"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-				<a href="https://www.linkedin.com/in/jappan/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-				<a href="https://www.twitter.com/"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-			</div>
-			<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Jappan_Rana.pdf">View Resume</a>
-		</div>
-	</section>
-	<section class="intro" id="about">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-sm-6 intro-about-pic">
-					<figure>
-						<img src="https://i.imgur.com/iINDQcJ.jpg" alt="Jappan Rana">
-						<figcaption>Jappan</figcaption>
-					</figure>
-				</div>
-				<div class="col-12 col-sm-6 intro-about-text">
-					<h1>About me</h1>
-					<p>I am a NOT a self-taught programmer like everyone else around here. I had many great college teachers and also good online sources through out my journey. I believe time spent on learning something is never time wasted. So I keep on learning about various trends in technology and also I spent much time of my day to improve my current skill set and add new things to them.<br>When I am not coding Either i like to read related book or article or I play light mobile games just to fresh my mind for another session of coding.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="education" id="education">
-		<center>
-			<div class="shadowed">
-				<h1>Education</h1>
-			</div>
-			<br>
-			<br>
-			<div class="container">
-			<div class="row">
-				<div class="col-12 col-lg-4">
-					<h3><i class="fa fa-university" aria-hidden="true"></i>10th (SSC)<br></h3>
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="https://i.imgur.com/Pz9M3Rc.jpg" alt="school" style="width:300px;height:198px;">
-							</div>
-							<div class="flip-card-back">
-								<h1>St Peter's High school</h1>
-								<p>Maharashtra board(2016-17)</p>
-								<h4>82%</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-lg-4">
-					<h3><i class="fa fa-university" aria-hidden="true"></i>12th (HSC)<br></h3>
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="https://i.imgur.com/St2DZJ6.jpg" alt="college" style="width:300px;height:198px;">
-							</div>
-							<div class="flip-card-back">
-								<h1>KPB Hinduja College</h1>
-								<p>Maharashtra board(2018-19)</p>
-								<h4>82%</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-lg-4">
-					<h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>Graduation<br></h3>
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="https://i.imgur.com/TTACSYp.jpg" alt="graduation" style="width:300px;height:198px;">
-							</div>
-							<div class="flip-card-back">
-								<h1>KPB Hinduja College</h1>
-								<h2>B. C. A.</h2>
-								<h4>2019-2022(Expected)</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			</div>
-			<h1>Co-curriculam Activities</h1>
-			<h3>Events</h3>
-			<div class="container">
-			<div class="row">
-				<div class="col-12 col-sm-6">
-					<ul>
-						<li>
-							Have spread social awarness related to Cyber Security Both to childrens and parents to help raise awarness about the topic and to make safer environment for everyone online.
-						</li>
-					</ul>
-				</div>
-				<div class="col-12 col-sm-6">
-					<ul>
-						<li>
-							Coding ninjas - Placement Maze<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/placement_maze.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of Rank</i></a>
-						</li>
-						<li>
-							TechOx - Codeox v1.0<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/codeox.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of Participation</i></a>
-						</li>
-						<li>
-							Geeks for Geeks - Data structur and Algorithm <br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/geeksforgeeks-Data_structure_algo.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of Participation</i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			</div>
-			<h3>Workshops</h3>
-			<div class="container">
-			<div class="row">
-				<div class="col-12 col-sm-6">
-					<ul>
-						<li>
-							Devscript - Uncovering machine learning<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/devscript-uncovering%20machine%20learning.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Devscript - portfolio<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/devscript_portfolio.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of completion</i></a>
-						</li>
-						<li>
-							Devscript - College v/s Professional Life<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/clgvspractical.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-					</ul>
-					</ul>
-				</div>
-				<div class="col-12 col-sm-6">
-					<ul>
-						<li>
-							Zubi - api Programming with blockchain<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-api%20blockchain.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - build a chat app with reactjs<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-chat%20app%20with%20reactjs.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - build your first app with node.js workshop<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-node.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - Diving into the global Startup Ecosystem<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-enterpreneurship.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - Consensus in blockchain<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-consensus_blockchain.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - Endeavour bootcamp<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-endeavour_bootcamp.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - Blockchain<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-blockchain.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - Make Instagram filter<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-instagram_filter.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-						<li>
-							Zubi - Machine Learning<br>
-							<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/zubi-machine_learning.pdf"><i class="fa fa-certificate" aria-hidden="true">Certificate of participation</i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			</div>
-		</center>
-	</section>
-	<section class="skills" id="skill">
-		<br>
-		<center>
-		<div class="shadowed">
-			<h1>Skills</h1>
-		</div>
-		</center>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-sm-6 intro-skill-left">
-					<h2>Web development</h2>
-					<div class="skill-name"><i class="fa fa-html5" aria-hidden="true"></i> html</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/HTML_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-css3" aria-hidden="true"></i> css</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-code" aria-hidden="true"></i> Javascript</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/LUjavascript.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 1</a><br>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/JavaScript_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 2</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-code" aria-hidden="true"></i></i> php</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/PHP_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 30%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-code" aria-hidden="true"></i> Django</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Django_workshop.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 15%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-database" aria-hidden="true"></i> sql</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/SQL_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-code" aria-hidden="true"></i> jQuery</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 1%"></div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 intro-skill-right">
-					<h2>Programming</h2>
-					<div class="skill-name"><i class="fa fa-terminal" aria-hidden="true"></i> Python</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/LUpython.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 1</a><br>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Python_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 2</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-terminal" aria-hidden="true"></i> C</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/C_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-terminal" aria-hidden="true"></i> C++</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/CPlusPlus_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-terminal" aria-hidden="true"></i> C#</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/CSharp_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-terminal" aria-hidden="true"></i> Java</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Java_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-terminal" aria-hidden="true"></i> Ruby</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Ruby_certificate.jpg"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-gamepad" aria-hidden="true"></i> Pygame</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
-					</div>
-				</div>
-			</div class="hacking">
-			<center><div class="skill-name-main"><i class="fa fa-bomb" aria-hidden="true"></i> Ethical hacking (cyber security)</div>
-				<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/LUCS.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-			</center>
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-sm-6">
-						<div class="skill-name"><i class="fa fa-window-maximize" aria-hidden="true"></i> Website Testing</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
-						</div>
-						<div class="skill-name"><i class="fa fa-key" aria-hidden="true"></i> Reverse engineering</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 15%"></div>
-						</div>
-						<div class="skill-name"><i class="fa fa-bug" aria-hidden="true"></i> Virus/Malware creation</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
-						</div>
-						<div class="skill-name"><i class="fa fa-microchip" aria-hidden="true"></i> Hardware</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 55%"></div>
-						</div>
-						<div class="skill-name"><i class="fa fa-code-fork" aria-hidden="true"></i> Networking</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
-						</div>
-						<div class="skill-name"><i class="fa fa-linux" aria-hidden="true"></i> OS Knowledge</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 38%"></div>
-						</div>
-					</div>
-				<div class="col-12 col-sm-6">
-					<div class="skill-name"><i class="fa fa-users" aria-hidden="true"></i> Social Engineering</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-lock" aria-hidden="true"></i> Cryptography and Stagnography</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-search" aria-hidden="true"></i> Reconnaissance</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-bolt" aria-hidden="true"></i> Penetration(practical)</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 15%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-archive" aria-hidden="true"></i> Tools</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
-					</div>
-					<div class="skill-name"><i class="fa fa-gamepad" aria-hidden="true"></i> CTF's</div>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 32%"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-			<center><div class="skill-name-main"><i class="fa fa-cloud" aria-hidden="true"></i> Cloud computing(AWS)</div>
-				<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/LUAWS.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-			</center>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
-			</div>
-			<center><div class="skill-name-main"><i class="fa fa-cloud" aria-hidden="true"></i> Robotic Process Automation(AA)</div>
-				<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/LURPA.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-			</center>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 35%"></div>
-			</div>
-			<center><div class="skill-name-main"><i class="fa fa-bar-chart" aria-hidden="true"></i> Digital Marketing</div>
-				<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/lead_generation.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 1(Lead Generation)</a>
-			</center>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
-			</div>
-			<center><div class="skill-name-main"><i class="fa fa-tasks" aria-hidden="true"></i> <i class="fa fa-link" aria-hidden="true"></i> Blockchain</div>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/LUblockchain.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 1</a><br>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Certificate_of_Completion_Blockchain_Essence.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 2</a><br>
-					<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Certificate_of_Completion_Introduction_to_Ethereum__Hyperledger.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate 3</a></center>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
-			</div>
-			<center><div class="skill-name-main"><i class="fa fa-android" aria-hidden="true"></i> Machine Learning</div></center>
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-sm-6">
-						<div class="skill-name"><i class="fa fa-line-chart" aria-hidden="true"></i> supervised</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
-						</div>
-					</div>
-					<div class="col-12 col-sm-6">
-						<div class="skill-name"><i class="fa fa-area-chart" aria-hidden="true"></i> Un-supervised</div>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 1%"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<center><div class="skill-name-main"><i class="fa fa-android" aria-hidden="true"></i> Data Analyzing</div></center>
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-sm-6">
-						<div class="skill-name"><i class="fa fa-pie-chart" aria-hidden="true"></i> Visualization</div>
-						<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Basic-data-visualization-methods.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
-						</div>
-						<div class="skill-name"><i class="fa fa-pie-chart" aria-hidden="true"></i> Fundamentals of Data Analytics</div>
-						<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/fundamentals_of_data_analytics.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
-						</div>
-					</div>
-					<div class="col-12 col-sm-6">
-						<div class="skill-name"><i class="fa fa-area-chart" aria-hidden="true"></i> Data processing</div>
-						<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/fundamentals%20of%20data%20processing.pdf"><i class="fa fa-certificate" aria-hidden="true"></i>Certificate</a>
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 30%"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="projects">
-		<center>
-		<br>
-		<div class="shadowed">
-			<h1 align="center"><i class="fa fa-file-code-o" aria-hidden="true"></i> Projects</h1>
-		</div>
-		</center>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-lg-4">
-					<div class="card">
-					<img src="https://i.imgur.com/GV6NHWl.jpg" alt="Chrome dino" style="width:100%">
-					<h1>Chrome Dino</h1>
-					<p>A copy of chrome dino jump game with custom godzilla sprite and some extra features like airstrike.</p>
-					<p><a href="https://github.com/jappanrana/practice/tree/master/python/pygame/second%20game"><button><i class="fa fa-github" aria-hidden="true"></i> View Code</button></a></p>
-					</div>
-					<br>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="card">
-					<img src="https://i.imgur.com/AQNM2Bc.png" alt="BrainF*ck Compiler" style="width:100%">
-					<h1>BrainF*ck Compiler</h1>
-					<p>Simple compiler for Brainf*ck programming language. Language itself, is a Turing-complete language. But since it is esoteric language it is hard to be implemented. </p>
-					<p><a href="https://github.com/jappanrana/practice/blob/master/python/BrainF*ck/compiler.py"><button><i class="fa fa-github" aria-hidden="true"></i> View Code</button></a></p>
-					</div>
-					<br>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="card">
-						<img src="https://i.imgur.com/tU2qZwl.jpg" alt="Fractal Tree" style="width:100%">
-						<h1>Fractal tree</h1>
-						<p>A python program on pygame that gives different fractal tree design every second.</p>
-						<p><a href="https://github.com/jappanrana/practice/blob/master/python/pygame/Fractal%20tree/tree.py"><button><i class="fa fa-github" aria-hidden="true"></i> View Code</button></a></p>
-					</div>
-					<br>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-lg-4">
-					<div class="card">
-						<img src="https://i.imgur.com/gYUraLG.png" alt="Galaxy Ship" style="width:100%">
-						<h1>Galaxy Ship</h1>
-						<p>A old school game spaceship in an astroid belt. It can shoot missile which has different hit rate for different astroid. Ship has health bar and many more features</p>
-						<p><a href="https://github.com/jappanrana/practice/tree/master/python/pygame/fourth%20game"><button><i class="fa fa-github" aria-hidden="true"></i> View Code</button></a></p>
-					</div>
-					<br>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="card">
-						<img src="https://i.imgur.com/pDxB5Ym.jpg" alt="GUI Assistant" style="width:100%">
-						<h1>GUI Assistant</h1>
-						<p>Can retreive data online from sites, do maths, can get information from wikipedia and many thing.<br>Project is bit incomplete.</p>
-						<p><a href="https://github.com/jappanrana/practice/tree/master/python/GUI%20assistant"><button><i class="fa fa-github" aria-hidden="true"></i> View Code</button></a></p>
-					</div>
-					<br>
-				</div>
-				<div class="col-12 col-lg-4">
-					<div class="card">
-					<img src="https://i.imgur.com/eYFxOlT.jpg" alt="Sudoku" style="width:100%">
-					<h1>Sudoku</h1>
-					<p>A python program on pygame that gives a sudoku game and also its solution.</p>
-					<p><a href="#"><button><i class="fa fa-github" aria-hidden="true"></i> Coming soon...</button></a></p>
-					</div>
-					<br>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="services">
-		<center>
-		<div class="shadowed">
-			<h1 align="center">What can I do for you?</h1>
-		</div>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-6">
-					<a href="#contact">
-					<div class="coupon">
-						<div class="coupon-container">
-							<h3>Website</h3>
-						</div>
-						<img src="https://i.imgur.com/6GdKu28.jpg" alt="web-dev" style="width:100%;">
-						<div class="coupon-container" style="background-color: silver">
-							<h2><b>15% OFF FOR NEW CLIENTS</b></h2>
-							<p>A portfolio website for job-seekers or a website for small business can add to the value in the eye of someone who is looking for your skills or something you sell.</p>
-						</div>
-						<div class="coupon-container">
-							<p>Use Promo Code: <span class="promo">COVID19</span></p>
-							<p class="expire">Expires: Dec 31, 2020</p>
-						</div>
-					</div>
-					</a>
-					<br>
-				</div>
-				<div class="col-12 col-md-6">
-					<a href="#contact">
-					<div class="coupon">
-						<div class="coupon-container">
-							<h3>E-Commerce site</h3>
-						</div>
-						<img src="https://i.imgur.com/mk6KsY7.jpg" alt="e-commerce" style="width:100%;">
-						<div class="coupon-container" style="background-color:silver">
-							<h2><b>10% OFF FOR NEW CLIENTS</b></h2>
-							<p>An e-commerce siteof your business in this time of social-distancing can virus can motivate people to buy from your local business rather then from your competitors</p>
-						</div>
-						<div class="coupon-container">
-							<p>Use Promo Code: <span class="promo">COVID19</span></p>
-							<p class="expire">Expires: Dec 31, 2020</p>
-						</div>
-					</div>
-					</a>
-					<br>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-6">
-					<a href="#contact">
-					<div class="coupon">
-						<div class="coupon-container">
-							<h3>SEO</h3>
-						</div>
-						<img src="https://i.imgur.com/nU6U9Ch.jpg" alt="seo" style="width:100%;">
-						<div class="coupon-container" style="background-color:silver">
-							<h2><b>REFUND</b></h2>
-							<p>If your business is listed on google or you already own a site but still you don't generate much leads from there the most logical reason would be your listings and site is not optimized well. So why don't try SEO- search engine optimization service with moneyback guarantee if no change in leads is seen.</p>
-						</div>
-						<div class="coupon-container">
-							<p>Use Promo Code: <span class="promo">MONEY</span></p>
-							<p class="expire">Expires: Dec 31, 2020</p>
-						</div>
-					</div>
-					</a>
-					<br>
-				</div>
-				<div class="col-12 col-md-6">
-					<a href="#contact">
-					<div class="coupon">
-						<div class="coupon-container">
-							<h3>Web testing</h3>
-						</div>
-						<img src="https://i.imgur.com/CoFO9di.jpg" alt="web-testing" style="width:100%;">
-						<div class="coupon-container" style="background-color:silver">
-							<h2><b>REFUND</b></h2>
-							<p>With emerging changes in e-business, hacking and hackers have became a serious threat to business and there reputation. So why don't try testing your website for potential threats and bugs with our refund policy if you don't like the service.</p>
-						</div>
-						<div class="coupon-container">
-							<p>Use Promo Code: <span class="promo">MONEY</span></p>
-							<p class="expire">Expires: Dec 31, 2020</p>
-						</div>
-					</div>
-					</a>
-					<br>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-6">
-					<a href="#contact">
-					<div class="coupon">
-						<div class="coupon-container">
-							<h3>Digital marketing</h3>
-						</div>
-						<img src="https://i.imgur.com/PTmYYKM.jpg" alt="digital-marketing" style="width:100%;">
-						<div class="coupon-container" style="background-color:silver">
-							<h2><b>50% REFUND</b></h2>
-							<p>If you know your business listings and websites are well optimized still you aren't able to change your leads to your customers the reason might be you are not able to reach your potential customers with optimization. In such cases online marketing may proove to be a great solution. So why not try it with 50% refund with no questions asked.</p>
-						</div>
-						<div class="coupon-container">
-							<p>Use Promo Code: <span class="promo">CASH</span></p>
-							<p class="expire">Expires: Dec 31, 2020</p>
-						</div>
-					</div>
-					</a>
-					<br>
-				</div>
-				<div class="col-12 col-md-6">
-					<a href="#contact">
-					<div class="coupon">
-						<div class="coupon-container">
-							<h3>Social Media Handler</h3>
-						</div>
-						<img src="https://i.imgur.com/kUDmtCN.jpg" alt="social-media-handler" style="width:100%;">
-						<div class="coupon-container" style="background-color:silver">
-							<h2><b>50% REFUND</b></h2>
-							<p>Do you want to take your local physical business to next online stage but are busy to operate it online and giving it enough time to grow online. Worry not you can hire a social media handler who can do the same for you. You can try it with us and if we are unable to reach your desired online reptation you can ask us for a refund of upto 50% without any inconvinience caused in the process</p>
-						</div>
-						<div class="coupon-container">
-							<p>Use Promo Code: <span class="promo">CASH</span></p>
-							<p class="expire">Expires: Dec 31, 2020</p>
-						</div>
-					</div>
-					</a>
-					<br>
-				</div>
-			</div>
-		</div>
-		</center>
-	</section>
-	<section id="contact">
-		<center>
-		<div class="bg-new">
-			<br>
-		<h4 class="glow" id="contact-head"><i class="fa fa-handshake-o" aria-hidden="true"></i> Contact me</h4><br>
-		<h1 align="center">Jappan Rana</h1>
-		<h4 align="center">Whatsapp:-+91 7756917957</h4>
-			<div class="text-center socials-last">
-				<a href="https://www.github.com/jappanrana/JappanCodes"><i class="fa fa-github-square" aria-hidden="true"></i></a>
-				<a href="https://www.instagram.com/_jappan_/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-				<a href="https://t.me/god_warrior_1/"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-				<a href="mailto: jappanrana@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-				<a href="https://www.facebook.com/jappan.rana"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-				<a href="https://www.linkedin.com/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-				<a href="https://www.twitter.com/"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-			</div>
-		<a href="https://github.com/jappanrana/portfolio-website/blob/master/images/Jappan_Rana.pdf">View Resume</a>
-		<br>
-		<br>
-		<br>
-	</div>
-	</center>
-	</section>
-	<br>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-	<script>
-		function theme() {
-			var element = document.body;
-			element.classList.toggle("dark-mode");
-		}
-	</script>
-	<script>
-		$(document).ready(function() {
-			//Preloader
-			preloaderFadeOutTime = 500;
-			function hidePreloader() {
-				var preloader = $('.spinner-wrapper');
-				preloader.fadeOut(preloaderFadeOutTime);
-				}
-			$(window).on("load", function() {hidePreloader();});
-			});
-	</script>
+      <!-- Add more categories: Emerging Tech, Programming Skills, Management Skills -->
+      <!-- You can replicate and tweak the above card structure for each category -->
+
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-gray-900 border-t border-gray-800 text-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Projects</h2>
+
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Example Project Card -->
+      <div 
+  class="relative bg-gray-950 p-6 rounded-2xl shadow-lg transition duration-300 group perspective cursor-pointer"
+  data-aos="fade-up" 
+  data-aos-delay="100"
+  onmousemove="handle3DTilt(event, this)" 
+  onmouseleave="reset3DTilt(this)"
+>
+  <div class="inner-card transition-transform duration-300 transform-gpu will-change-transform rounded-xl">
+    <img 
+      src="https://placehold.co/400x200" 
+      alt="Project Image" 
+      class="rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300" 
+    />
+    <h3 class="text-xl font-semibold mb-2 text-white">DNS App</h3>
+    <p class="text-sm text-gray-400 mb-4">A networking tool with broadcast receivers, senders, and DNS tunneling.</p>
+    <button
+      onclick='openModal({
+        title: "DNS App",
+        description: "A networking tool with broadcast receivers, senders, and DNS tunneling.",
+        company: "Lahagora",
+        skills: "Kotlin, Coroutines, Android SDK",
+        learning: "Optimizing network tools across Android devices.",
+        link: "#"
+      })'
+      class="mt-2 inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm text-white backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300 shadow-[0_0_15px_rgba(0,132,255,0.5)] hover:shadow-[0_0_25px_rgba(0,132,255,0.9)]"
+    >
+      View Details
+      <svg class="w-4 h-4 animate-pulse text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Modal Structure -->
+<div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden animate-modal-pop">
+<canvas id="modalParticles" class="absolute inset-0 z-40 pointer-events-none"></canvas>
+    <div class="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-[0_0_30px_5px_rgba(0,255,255,0.2)] border border-cyan-400/30 text-white max-w-md w-full relative ring-1 ring-cyan-500/20">
+    <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-300 hover:text-white text-xl">&times;</button>
+    <h3 class="text-2xl font-bold mb-2" id="modalTitle"></h3>
+    <p class="text-gray-300 mb-2" id="modalDescription"></p>
+    <p class="text-gray-400 text-sm"><strong>Company:</strong> <span id="modalCompany"></span></p>
+    <p class="text-gray-400 text-sm"><strong>Skills:</strong> <span id="modalSkills"></span></p>
+    <p class="text-gray-400 text-sm"><strong>Learned:</strong> <span id="modalLearning"></span></p>
+    <a id="modalLink" href="#" target="_blank" class="mt-4 inline-block text-cyan-400 hover:underline">View Project</a>
+  </div>
+</div>
+
+<!-- Experience Section -->
+<section id="experience" class="relative py-20 bg-gray-950 border-t border-gray-800 text-white overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6 md:px-12 lg:px-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Experience</h2>
+
+    <!-- Vertical Timeline with Scroll-Synced Meteor -->
+    <div class="relative border-l-4 border-cyan-500 pl-10 space-y-12">
+
+      <!-- Timeline Item -->
+      <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+        <div class="absolute left-[-1.15rem] top-1.5 w-6 h-6 bg-cyan-600 border-4 border-gray-950 rounded-full shadow-xl z-10"></div>
+        <div class="bg-gray-900 rounded-2xl p-6 border border-cyan-500 group-hover:shadow-[0_0_25px_5px_rgba(0,255,255,0.6)] transition-all duration-300 backdrop-blur-md relative overflow-hidden">
+          <div class="absolute inset-0 z-0 bg-gradient-to-br from-cyan-500/10 to-transparent animate-border-move"></div>
+          <h3 class="text-xl font-semibold mb-2 relative z-10">Senior Android Developer</h3>
+          <p class="text-sm text-gray-400 mb-2 relative z-10">Lahagora · 2022 - Present</p>
+          <p class="text-gray-300 text-sm relative z-10">Led AOSP-based TV projects, optimized system components, and integrated AI-enhanced features for better user experiences.</p>
+        </div>
+      </div>
+
+      <!-- Another Timeline Item -->
+      <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute left-[-1.15rem] top-1.5 w-6 h-6 bg-cyan-600 border-4 border-gray-950 rounded-full shadow-xl z-10"></div>
+        <div class="bg-gray-900 rounded-2xl p-6 border border-cyan-500 group-hover:shadow-[0_0_25px_5px_rgba(0,255,255,0.6)] transition-all duration-300 backdrop-blur-md relative overflow-hidden">
+          <div class="absolute inset-0 z-0 bg-gradient-to-br from-cyan-500/10 to-transparent animate-border-move"></div>
+          <h3 class="text-xl font-semibold mb-2 relative z-10">Full Stack Intern</h3>
+          <p class="text-sm text-gray-400 mb-2 relative z-10">XYZ Corp · 2021 - 2022</p>
+          <p class="text-gray-300 text-sm relative z-10">Worked across frontend/backend with React and Node, implemented APIs, and deployed apps on cloud platforms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lamp Hover Effect -->
+  <div class="pointer-events-none fixed inset-0 z-0">
+    <div id="lamp-glow" class="absolute w-80 h-80 bg-cyan-400 opacity-20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" style="top: 50%; left: 50%;"></div>
+  </div>
+</section>
+
+<!-- Education & Certifications Section -->
+<section id="education" class="relative py-20 bg-gray-950 text-white border-t border-gray-800">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center" data-aos="fade-up">Education</h2>
+
+    <!-- Education Grid -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2" data-aos="fade-up">
+      <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg border border-cyan-400 hover:scale-105 transition-transform duration-300 hover:text-cyan-400 text-white text-center">
+        <h3 class="text-xl font-semibold mb-1 transition-transform duration-300 group-hover:scale-105">MCA - Masters of Computer Applications AI & ML</h3>
+        <p class="text-sm text-gray-400">Amity University · 2023 - 2025</p>
+      </div>
+      <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg border border-cyan-400 hover:scale-105 transition-transform duration-300 hover:text-cyan-400 text-white text-center">
+        <h3 class="text-xl font-semibold mb-1 transition-transform duration-300 group-hover:scale-105">BCA - Bachelors of Computer Applications</h3>
+        <p class="text-sm text-gray-400">K P B Hinduja College · 2019 - 2022</p>
+      </div>
+      <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg border border-cyan-400 hover:scale-105 transition-transform duration-300 hover:text-cyan-400 text-white text-center">
+        <h3 class="text-xl font-semibold mb-1 transition-transform duration-300 group-hover:scale-105">Higher Secondary Education</h3>
+        <p class="text-sm text-gray-400">K P B Hinduja College · 2017 - 2019</p>
+      </div>
+      <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg border border-cyan-400 hover:scale-105 transition-transform duration-300 hover:text-cyan-400 text-white text-center">
+        <h3 class="text-xl font-semibold mb-1 transition-transform duration-300 group-hover:scale-105">Secondary Schooling</h3>
+        <p class="text-sm text-gray-400">Maharashtra Board · 2015 - 2017</p>
+      </div>
+    </div>
+
+    <!-- Certifications Carousel -->
+<h2 class="text-3xl md:text-4xl font-bold mt-20 mb-6 text-center" data-aos="fade-up">Certifications</h2>
+<div class="relative overflow-hidden" data-aos="fade-up">
+  <div class="flex gap-8 animate-carousel-new w-max m-5">
+    <!-- Duplicate cards to create loop effect -->
+    <template id="certCard">
+      <div class="group min-w-[280px] snap-center shrink-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-cyan-500 rounded-3xl p-6 backdrop-blur-xl shadow-xl transition-all duration-300 hover:scale-[1.07] hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] relative transform-style-3d perspective-1000">
+        <div class="absolute -inset-1 rounded-3xl border border-cyan-500 opacity-30 blur-xl animate-pulse group-hover:opacity-60"></div>
+        <h3 class="text-lg font-bold mb-2 text-white z-10 relative">[Title]</h3>
+        <p class="text-sm text-gray-400 z-10 relative">[Institute] · [Year]</p>
+        <p class="text-xs text-gray-300 mt-1 z-10 relative">[Description]</p>
+        <div class="absolute top-2 right-2 w-3 h-3 bg-cyan-400 rounded-full animate-ping z-20"></div>
+      </div>
+    </template>
+
+    <script>
+      const data = [
+        {
+          title: "Android Jetpack Certification",
+          institute: "Google",
+          year: "2023",
+          desc: "Mastered MVVM, Navigation Component, WorkManager, and more."
+        },
+        {
+          title: "Full Stack Developer Bootcamp",
+          institute: "Coursera",
+          year: "2022",
+          desc: "Built and deployed full stack apps using MERN stack."
+        },
+        {
+          title: "AI in Mobile Applications",
+          institute: "Udacity",
+          year: "2023",
+          desc: "Integrated TensorFlow Lite into Android for object detection."
+        }
+      ];
+
+      const wrapper = document.querySelector(".animate-carousel-new");
+      const template = document.getElementById("certCard");
+
+      // Add original + duplicate set
+      for (let i = 0; i < 2; i++) {
+        data.forEach(cert => {
+          const clone = template.content.cloneNode(true);
+          clone.querySelector("h3").textContent = cert.title;
+          clone.querySelector("p").textContent = `${cert.institute} · ${cert.year}`;
+          clone.querySelectorAll("p")[1].textContent = cert.desc;
+          wrapper.appendChild(clone);
+        });
+      }
+    </script>
+  </div>
+</div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="relative py-24 px-6 md:px-12 lg:px-24 text-white bg-black overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="w-full h-full bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-black opacity-50 animate-pulse"></div>
+    <div class="absolute w-full h-full bg-[radial-gradient(circle_at_50%_50%,#7f5af0_10%,transparent_70%)] opacity-10"></div>
+  </div>
+  <div class="max-w-4xl mx-auto backdrop-blur-md rounded-3xl border border-purple-600/30 p-10 bg-white/5 shadow-2xl relative  scrolling-stars">
+    <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center" data-aos="zoom-in">Get in Touch</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div>
+        <p class="text-lg font-semibold mb-2">Email</p>
+        <p class="text-sm text-purple-300"><a href="mailto:jappan@gmail.com" target="_blank" class="underline hover:text-purple-500">jappan@gmail.com</a></p>
+      </div>
+      <div>
+        <p class="text-lg font-semibold mb-2">Phone</p>
+        <p class="text-sm text-purple-300">+91 98342 30253</p>
+      </div>
+      <div>
+        <p class="text-lg font-semibold mb-2">LinkedIn</p>
+        <p class="text-sm text-purple-300"><a href="https://www.linkedin.com/in/jappan" target="_blank" class="underline hover:text-purple-500">jappan</a></p>
+      </div>
+      <div>
+        <p class="text-lg font-semibold mb-2">LeetCode</p>
+        <p class="text-sm text-purple-300"><a href="https://leetcode.com/u/JappanRana/" target="_blank" class="underline hover:text-purple-500">JappanRana</a></p>
+      </div>
+      <div class="md:col-span-2 mt-6">
+        <p class="text-lg font-semibold mb-2">Hobbies</p>
+        <p class="text-sm text-purple-300">Gaming, Trading, Fitness, Meditation, Exploring Tech</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- AOS Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'fade-in': 'fadeIn 1.5s ease-out forwards',
+            'spin-slow': 'spin 8s linear infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'float': 'float 6s ease-in-out infinite'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  AOS.init();
+  // Lamp follow effect
+  document.addEventListener('mousemove', (e) => {
+    const lamp = document.getElementById('lamp-glow');
+    lamp.style.left = `${e.clientX}px`;
+    lamp.style.top = `${e.clientY}px`;
+  });
+
+  function handle3DTilt(e, card) {
+    const inner = card.querySelector('.inner-card');
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    // Amplified tilt factor
+    const rotateX = (-y / 8).toFixed(2); // more dramatic vertical tilt
+    const rotateY = (x / 8).toFixed(2);  // more dramatic horizontal tilt
+
+    inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    inner.style.transition = 'transform 0.1s ease';
+  }
+
+  function reset3DTilt(card) {
+    const inner = card.querySelector('.inner-card');
+    inner.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    inner.style.transition = 'transform 0.3s ease';
+  }
+
+  function openModal({ title, description, company, skills, learning, link }) {
+    document.getElementById("modalTitle").textContent = title;
+    document.getElementById("modalDescription").textContent = description;
+    document.getElementById("modalCompany").textContent = company;
+    document.getElementById("modalSkills").textContent = skills;
+    document.getElementById("modalLearning").textContent = learning;
+    document.getElementById("modalLink").href = link;
+    document.getElementById("projectModal").classList.remove("hidden");
+  }
+
+  function closeModal() {
+    document.getElementById("projectModal").classList.add("hidden");
+  }
+  const canvas = document.getElementById('modalParticles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      dx: Math.random() * 0.6 - 0.3,
+      dy: Math.random() * 0.6 - 0.3
+    });
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(0, 255, 255, 0.3)';
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      p.x += p.dx;
+      p.y += p.dy;
+
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    }
+    requestAnimationFrame(animateParticles);
+  }
+
+  animateParticles();
+</script>
+
 </body>
 </html>
-<!--
-planning to add on scroll effects
--->
