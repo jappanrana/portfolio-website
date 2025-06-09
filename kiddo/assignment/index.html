@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pythonic Rescue: An Interactive Adventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Retro Terminal -->
+    <!-- Application Structure Plan: The SPA is designed as a linear, multi-stage game within a single page. A main container displays one "stage" (a div) at a time, managed by JavaScript. Navigation is handled by "Proceed" buttons, which reveal the next stage in sequence. This structure was chosen because it perfectly mirrors the linear narrative of the source report, focusing the user's attention on a single challenge at a time. This enhances immersion and prevents the user from being overwhelmed, which is ideal for a learning-based game. The addition of password verification gates each stage, reinforcing the "get it checked" mechanic. The final screen provides a sense of completion and a "Play Again" option to restart the experience. -->
+    <!-- Visualization & Content Choices: Source Info: The report is a text-based story with coding challenges. Goal: Present the narrative and tasks in an engaging, game-like format with explicit password-gated progression. Viz/Presentation Method: The core presentation uses styled text blocks within containers designed to look like a retro computer terminal. A dark theme, monospaced font ('Fira Code'), and glowing text effect create this aesthetic. Unicode characters (e.g., 🚪, 📜, 🐉) are used as simple, thematic icons. Interaction: The primary interaction is clicking buttons to advance the stages. Instead of directly proceeding, buttons now trigger a password verification step. A text input field allows the user to enter the password, and a message area provides feedback. This directly implements the "get it checked and you will get password to move forward" requirement from the source report. Justification: This approach turns a static text document into a dynamic, interactive experience that enhances the learning process by making it more fun and visually appealing, directly supporting the goal of the source report. The explicit password gates add a layer of engagement and control for the instructor (you). Library/Method: Vanilla JavaScript for state, navigation, and password validation, Tailwind CSS for styling. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        .terminal-window {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            box-shadow: 0 0 15px rgba(0, 199, 140, 0.2);
+        }
+        .terminal-header {
+            background-color: #30363d;
+        }
+        .terminal-button {
+            background-color: #484f58;
+        }
+        .story-text {
+            color: #8b949e;
+        }
+        .prompt-text, .task-text {
+            color: #58a6ff;
+        }
+        .code-block {
+            background-color: #0d1117;
+            border-left: 3px solid #388bfd;
+        }
+        .primary-btn {
+            background-color: #238636;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .primary-btn:hover {
+            background-color: #2ea043;
+        }
+        .secondary-btn {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .secondary-btn:hover {
+            background-color: #30363d;
+            border-color: #8b949e;
+        }
+        .stage {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+        .visible {
+            display: block;
+            opacity: 1;
+        }
+        input[type="password"]:focus {
+            outline: 2px solid #58a6ff !important;
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+        }
+        .password-message {
+            min-height: 1.5rem; /* Reserve space for message */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <main id="app-container" class="w-full max-w-4xl mx-auto">
+
+        <!-- Stage 0: Intro -->
+        <div id="stage-0" class="stage visible">
+            <div class="terminal-window rounded-lg overflow-hidden">
+                <div class="terminal-header p-2 flex items-center">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500 terminal-button"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 terminal-button"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500 terminal-button"></div>
+                    </div>
+                    <p class="text-sm text-gray-400 mx-auto">Pythonic_Rescue.sh</p>
+                </div>
+                <div class="p-6 md:p-8">
+                    <h1 class="text-2xl md:text-3xl font-bold text-green-400 mb-4 text-center">THE PYTHONIC RESCUE</h1>
+                    <div class="text-center story-text space-y-3">
+                        <p>A desperate plea flashes across your screen.</p>
+                        <p>Your beloved has been captured by the nefarious <span class="text-red-400 font-bold">Lord Syntax Error</span> and imprisoned deep within his fortress, the "Indentation Citadel"!</p>
+                        <p>Only the power of <span class="text-yellow-400 font-bold">Python</span> can unravel the citadel's mysteries and set them free.</p>
+                        <p class="text-lg text-white mt-6">Are you ready, brave coder?</p>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button onclick="showStage(1)" class="primary-btn font-bold py-3 px-8 rounded-lg text-lg">
+                            Start the Adventure
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 1: Guarded Corridor -->
+        <div id="stage-1" class="stage hidden">
+            <div class="terminal-window rounded-lg overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-green-400 mb-4">STAGE 1: The Guarded Corridor 🚪</h2>
+                    <p class="story-text mb-4">You find yourself in a long, dimly lit corridor with 10 doors. You recall an ancient prophecy: "Guards in front of even-numbered doors are aligned with Lord Syntax Error." To proceed, you must identify them.</p>
+                    
+                    <div class="my-6 p-4 rounded-md bg-gray-800 border border-gray-700">
+                        <h3 class="font-bold mb-2 task-text">Your Task:</h3>
+                        <p>Write a Python script that generates a list of all even numbers from 1 to 10. This list represents the doors with evil guards.</p>
+                    </div>
+
+                    <div class="my-6">
+                        <h3 class="font-bold mb-2 text-gray-400">Expected Output:</h3>
+                        <pre class="code-block p-3 rounded-md text-green-300"><code>[2, 4, 6, 8, 10]</code></pre>
+                    </div>
+
+                    <p class="story-text text-sm my-4">Once your script is working correctly, get the password from your guide. Then, enter it below to proceed.</p>
+                    <div class="mt-6 flex flex-col md:flex-row items-center gap-4">
+                        <input type="password" id="password-input-1" class="w-full md:w-auto flex-grow p-3 bg-black/50 rounded-md border border-gray-600 focus:outline-none focus:border-blue-500" placeholder="Enter password...">
+                        <button onclick="checkPassword(1)" class="primary-btn font-bold py-2 px-6 rounded-lg w-full md:w-auto">
+                            Unlock Stage 2
+                        </button>
+                    </div>
+                    <div id="password-message-1" class="password-message text-red-400 text-sm mt-2"></div>
+                    
+                    <div class="mt-8 flex justify-between items-center">
+                        <button onclick="showStage(0)" class="secondary-btn font-bold py-2 px-6 rounded-lg">&larr; Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stage 2: Whispering Library -->
+        <div id="stage-2" class="stage hidden">
+            <div class="terminal-window rounded-lg overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-green-400 mb-4">STAGE 2: The Whispering Library 📜</h2>
+                    <p class="story-text mb-4">The door opens to a vast, silent library. A tattered scroll on a pedestal holds a clue, pointing to a single, long string of garbled characters etched on a book: `"gnikrow si noitacificecnirtnI"`.</p>
+
+                    <div class="my-6 p-4 rounded-md bg-gray-800 border border-gray-700">
+                        <h3 class="font-bold mb-2 task-text">Your Task:</h3>
+                        <p>Write a Python script that takes the garbled string and reverses it to reveal the secret phrase. Hint: Slicing!</p>
+                    </div>
+
+                    <div class="my-6">
+                        <h3 class="font-bold mb-2 text-gray-400">Expected Output:</h3>
+                        <pre class="code-block p-3 rounded-md text-green-300"><code>Intricacies in working</code></pre>
+                    </div>
+
+                    <p class="story-text text-sm my-4">Unscramble the message, verify your script, get the password, and then enter it below.</p>
+                    <div class="mt-6 flex flex-col md:flex-row items-center gap-4">
+                        <input type="password" id="password-input-2" class="w-full md:w-auto flex-grow p-3 bg-black/50 rounded-md border border-gray-600 focus:outline-none focus:border-blue-500" placeholder="Enter password...">
+                        <button onclick="checkPassword(2)" class="primary-btn font-bold py-2 px-6 rounded-lg w-full md:w-auto">
+                            Unlock Stage 3
+                        </button>
+                    </div>
+                    <div id="password-message-2" class="password-message text-red-400 text-sm mt-2"></div>
+
+                    <div class="mt-8 flex justify-between items-center">
+                        <button onclick="showStage(1)" class="secondary-btn font-bold py-2 px-6 rounded-lg">&larr; Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 3: Enchanted Forest -->
+        <div id="stage-3" class="stage hidden">
+            <div class="terminal-window rounded-lg overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-green-400 mb-4">STAGE 3: The Enchanted Forest 🌳</h2>
+                    <p class="story-text mb-4">You enter a forest humming with magic. A wise tree tells you that to find the true path, you must calculate its 'Purity'. The path is pure only if 'Magic Residue' is less than 15 AND 'Tree Aura' is greater than 7.</p>
+                    
+                    <div class="my-6 p-4 rounded-md bg-gray-800 border border-gray-700">
+                        <h3 class="font-bold mb-2 task-text">Your Task:</h3>
+                        <p>Write a Python function `check_path_purity(magic_residue, tree_aura)` that calculates `(magic_residue * 2) + tree_aura` and returns "Pure Path" or "Corrupted Path" based on the conditions.</p>
+                    </div>
+                    
+                    <div class="my-6">
+                        <h3 class="font-bold mb-2 text-gray-400">Test Cases:</h3>
+                        <pre class="code-block p-3 rounded-md text-green-300"><code>check_path_purity(10, 8)  # Expected: "Pure Path"
+check_path_purity(20, 10) # Expected: "Corrupted Path"</code></pre>
+                    </div>
+
+                    <p class="story-text text-sm my-4">Craft your function, test its logic, get the password, and then enter it below.</p>
+                    <div class="mt-6 flex flex-col md:flex-row items-center gap-4">
+                        <input type="password" id="password-input-3" class="w-full md:w-auto flex-grow p-3 bg-black/50 rounded-md border border-gray-600 focus:outline-none focus:border-blue-500" placeholder="Enter password...">
+                        <button onclick="checkPassword(3)" class="primary-btn font-bold py-2 px-6 rounded-lg w-full md:w-auto">
+                            Unlock Stage 4
+                        </button>
+                    </div>
+                    <div id="password-message-3" class="password-message text-red-400 text-sm mt-2"></div>
+
+                    <div class="mt-8 flex justify-between items-center">
+                        <button onclick="showStage(2)" class="secondary-btn font-bold py-2 px-6 rounded-lg">&larr; Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 4: Dragon's Lair -->
+        <div id="stage-4" class="stage hidden">
+            <div class="terminal-window rounded-lg overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-green-400 mb-4">STAGE 4: The Dragon's Lair 🐉</h2>
+                    <p class="story-text mb-4">You stand before a slumbering dragon. Runes on the wall detail the rules of engagement. Your next move depends on the situation.</p>
+
+                    <div class="my-6 p-4 rounded-md bg-gray-800 border border-gray-700">
+                        <h3 class="font-bold mb-2 task-text">Your Task:</h3>
+                        <p>Using `if/elif/else`, write a script that takes three booleans (`is_dragon_sleeping`, `is_breathing_fire`, `is_chest_unguarded`) and prints the correct action: "Tiptoe past", "Flee!", or "Attempt distraction".</p>
+                    </div>
+                    
+                    <div class="my-6">
+                        <h3 class="font-bold mb-2 text-gray-400">Example Scenario:</h3>
+                        <pre class="code-block p-3 rounded-md text-green-300"><code>is_dragon_sleeping = True
+is_breathing_fire = False
+is_chest_unguarded = True
+# Expected Output: "Tiptoe past"</code></pre>
+                    </div>
+                    
+                    <p class="story-text text-sm my-4">Code your survival logic, get the password, and then enter it below to face the final challenge.</p>
+                    <div class="mt-6 flex flex-col md:flex-row items-center gap-4">
+                        <input type="password" id="password-input-4" class="w-full md:w-auto flex-grow p-3 bg-black/50 rounded-md border border-gray-600 focus:outline-none focus:border-blue-500" placeholder="Enter password...">
+                        <button onclick="checkPassword(4)" class="primary-btn font-bold py-2 px-6 rounded-lg w-full md:w-auto">
+                            Unlock Final Room
+                        </button>
+                    </div>
+                    <div id="password-message-4" class="password-message text-red-400 text-sm mt-2"></div>
+
+                    <div class="mt-8 flex justify-between items-center">
+                        <button onclick="showStage(3)" class="secondary-btn font-bold py-2 px-6 rounded-lg">&larr; Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 5: The Rescue -->
+        <div id="stage-5" class="stage hidden">
+             <div class="terminal-window rounded-lg overflow-hidden text-center">
+                <div class="p-6 md:p-8">
+                    <h1 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-4 animate-pulse">STAGE COMPLETE!</h1>
+                    <h2 class="text-xl md:text-2xl font-bold text-green-400 mb-4">THE RESCUE!</h2>
+                    <div class="story-text space-y-3">
+                        <p>With the final "password," the stone door grinds open. And there they are, safe and sound!</p>
+                        <p class="text-white font-bold">You've done it! Your Python skills have triumphed over Lord Syntax Error!</p>
+                        <p>As a reward for your heroic efforts, and a token of eternal gratitude, here is a special link just for you:</p>
+                    </div>
+                    <div class="my-8">
+                        <a href="https://jappanrana.github.io/portfolio-website/kiddo/assignment/reward.html" target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg hover:underline">
+                            Click Here for Your Hero's Reward!
+                        </a>
+                    </div>
+                    <h3 class="text-2xl text-white font-bold">Congratulations, Python Hero!</h3>
+                    <div class="mt-8">
+                         <button onclick="showStage(0)" class="secondary-btn font-bold py-3 px-8 rounded-lg">
+                            Play Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentStage = 0;
+        const stages = document.querySelectorAll('.stage');
+
+        // Define passwords for each stage (case-sensitive)
+        const stagePasswords = {
+            1: "even_guards",
+            2: "backward_phrase",
+            3: "pure_path_found",
+            4: "dragon_master"
+        };
+
+        function showStage(index) {
+            if (index < 0 || index >= stages.length) {
+                return;
+            }
+            
+            stages.forEach((stage, i) => {
+                if (i === index) {
+                    stage.classList.remove('hidden');
+                    setTimeout(() => stage.classList.add('visible'), 20);
+                } else {
+                    stage.classList.remove('visible');
+                    setTimeout(() => stage.classList.add('hidden'), 500);
+                }
+            });
+            currentStage = index;
+            window.scrollTo(0, 0); 
+            // Clear password fields and messages when navigating to a new stage
+            if (index > 0 && index <= 4) { // For stages with password inputs
+                const passwordInput = document.getElementById(`password-input-${index}`);
+                const passwordMessage = document.getElementById(`password-message-${index}`);
+                if (passwordInput) passwordInput.value = '';
+                if (passwordMessage) passwordMessage.textContent = '';
+            }
+        }
+
+        function checkPassword(stageNum) {
+            const passwordInput = document.getElementById(`password-input-${stageNum}`);
+            const passwordMessage = document.getElementById(`password-message-${stageNum}`);
+            
+            if (!passwordInput || !passwordMessage) {
+                console.error(`Password input or message element not found for stage ${stageNum}`);
+                return;
+            }
+
+            const enteredPassword = passwordInput.value.trim();
+            const correctPassword = stagePasswords[stageNum];
+
+            if (enteredPassword === correctPassword) {
+                passwordMessage.textContent = "Password accepted! Proceeding...";
+                passwordMessage.classList.remove('text-red-400');
+                passwordMessage.classList.add('text-green-400');
+                setTimeout(() => showStage(stageNum + 1), 700); // Small delay before advancing
+            } else {
+                passwordMessage.textContent = "Incorrect password. Please try again!";
+                passwordMessage.classList.remove('text-green-400');
+                passwordMessage.classList.add('text-red-400');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showStage(0);
+        });
+    </script>
+</body>
+</html>
