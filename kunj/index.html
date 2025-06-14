@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunj Bhayani - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #333;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #1a202c; /* neutral-800 */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px; /* Adjust as needed */
+            width: 60px; /* Underline width */
+            height: 4px; /* Underline thickness */
+            background-color: #6366f1; /* Indigo-500 */
+            border-radius: 9999px; /* Rounded ends */
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15); /* shadow-lg */
+        }
+        .btn-primary {
+            background-color: #6366f1; /* Indigo-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5; /* Indigo-600 */
+        }
+        .icon {
+            filter: invert(30%) sepia(80%) saturate(1500%) hue-rotate(230deg) brightness(90%) contrast(90%); /* Adjust for indigo tint */
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-sm py-4 fixed w-full z-10">
+        <nav class="container mx-auto flex justify-between items-center px-4">
+            <div class="text-2xl font-bold text-indigo-600">Kunj Bhayani</div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">About</a></li>
+                <li><a href="#experience" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Experience</a></li>
+                <li><a href="#education" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Education</a></li>
+                <li><a href="#projects" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Projects</a></li>
+                <li><a href="#certifications" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Certifications</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Contact</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="hidden md:hidden fixed inset-0 bg-black bg-opacity-50 z-20"></div>
+        <!-- Mobile Menu Sidebar -->
+        <div id="mobile-menu-sidebar" class="hidden md:hidden fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-30 transform translate-x-full transition-transform duration-300 ease-in-out p-6">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-700 hover:text-indigo-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <ul class="flex flex-col space-y-4 mt-12">
+                <li><a href="#home" class="block text-gray-800 hover:text-indigo-600 font-semibold text-lg py-2">Home</a></li>
+                <li><a href="#about" class="block text-gray-800 hover:text-indigo-600 font-semibold text-lg py-2">About</a></li>
+                <li><a href="#experience" class="block text-gray-800 hover:text-indigo-600 font-semibold text-lg py-2">Experience</a></li>
+                <li><a href="#education" class="block text-gray-800 hover:text-indigo-600 font-semibold text-lg py-2">Education</a></li>
+                <li><a href="#projects" class="block text-gray-800 hover:text-indigo-600 font-semibold text-lg py-2">Projects</a></li>
+                <li><a href="#certifications" class="block text-gray-800 hover:text-indigo-600 font-semibold text-lg py-2">Certifications</a></li>
+                <li><a href="#contact" class="block text-gray-800 hover:text-indigo-600 font-semibold text-lg py-2">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="home" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-20 md:py-32 rounded-b-3xl shadow-xl">
+            <div class="container mx-auto px-4 text-center">
+                <div class="mb-8">
+                    <img src="https://placehold.co/150x150/6366f1/FFFFFF?text=KB" alt="Kunj Bhayani" class="rounded-full mx-auto border-4 border-white shadow-lg w-32 h-32 md:w-40 md:h-40 object-cover">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up">Kunj Bhayani</h1>
+                <p class="text-xl md:text-2xl font-light mb-8 animate-fade-in-up delay-100">Research Analyst | Infralogic | Finance & Strategy</p>
+                <div class="space-x-4 animate-fade-in-up delay-200">
+                    <a href="#contact" class="btn-primary inline-block text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-300">Get in Touch</a>
+                    <a href="https://placehold.co/200x200.pdf" download="Kunj_Bhayani_Resume.pdf" class="btn-primary inline-block bg-white text-indigo-600 hover:bg-gray-100 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-300">Download Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-center mx-auto mb-12">About Me</h2>
+                <div class="lg:flex lg:items-center lg:space-x-12">
+                    <div class="lg:w-1/2 mb-8 lg:mb-0">
+                        <img src="https://placehold.co/600x400/9ca3af/FFFFFF?text=Kunj+Bhayani" alt="Kunj Bhayani working" class="rounded-xl shadow-lg w-full max-w-lg mx-auto transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="lg:w-1/2 text-lg text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            A finance professional with extensive experience in corporate planning, strategy, and business model development. My expertise lies in driving productivity improvements and delivering strategic insights through rigorous industry analysis and operational optimization.
+                        </p>
+                        <p class="mb-4">
+                            Currently, as a Research Analyst at ION Analytics (Infralogic), I specialize in analyzing project finance transactions and conducting in-depth research on greenfield developments, mergers and acquisitions, refinancing, and additional financing activities across key global infrastructure sectors. These sectors include energy, power, renewables, telecommunications, and commodities.
+                        </p>
+                        <p>
+                            I am particularly interested in M&A within the FMCG sector and am actively pursuing a career in strategy, valuation, and investment banking. My work involves collaborating with a global network of journalists to review valuable insights and contribute to data-driven content generation, with a primary focus on the Latin American region.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-center mx-auto mb-12">Experience</h2>
+
+                <!-- ION Experience -->
+                <div class="card p-6 md:p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Research Analyst</h3>
+                    <p class="text-xl font-medium text-gray-800 mb-1">ION · Full-time</p>
+                    <p class="text-gray-600 mb-4">Feb 2025 - Present · 5 mos | Mumbai, Maharashtra, India · On-site</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Responsible for analyzing project finance transactions and conducting in-depth research on greenfield developments, mergers and acquisitions, refinancing, and additional financing activities across key global infrastructure sectors, including energy, power, renewables, telecommunications, and commodities.</li>
+                        <li>Collaborate with a global network of journalists to review valuable insights and contribute to the generation of data-driven content.</li>
+                        <li>Primary focus on the Latin American region, providing comprehensive market research and analysis to inform key business decisions.</li>
+                    </ul>
+                </div>
+
+                <!-- Motilal Oswal Financial Services Ltd. -->
+                <div class="card p-6 md:p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Analyst | Corporate Planning</h3>
+                    <p class="text-xl font-medium text-gray-800 mb-1">Motilal Oswal Financial Services Ltd.</p>
+                    <p class="text-gray-600 mb-4">May 2024 - July 2024</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Analyzed Retail Broking Industry trends from a report by Bain & Company for strategic alignment.</li>
+                        <li>Automated productivity tracking, reducing manual work by 3 hours daily and minimizing errors.</li>
+                        <li>Developed scalable reactivation and risk models, enhancing decision-making and mentoring a management trainee.</li>
+                    </ul>
+                </div>
+
+                <!-- Ellipstore (Start-Up) -->
+                <div class="card p-6 md:p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Strategy</h3>
+                    <p class="text-xl font-medium text-gray-800 mb-1">Ellipstore (Start-Up)</p>
+                    <p class="text-gray-600 mb-4">Feb 2020 - May 2023</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Progressed from fulfillment to managing inventory and creating strategies that boosted productivity by 20% and reduced waste.</li>
+                        <li>Improved customer experience, driving a 25% increase in satisfaction and retention.</li>
+                        <li>Transitioned to the strategy team, optimizing operations and enhancing overall business performance.</li>
+                    </ul>
+                </div>
+
+                <!-- Amazon -->
+                <div class="card p-6 md:p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Delivery Associate</h3>
+                    <p class="text-xl font-medium text-gray-800 mb-1">Amazon</p>
+                    <p class="text-gray-600 mb-4">Oct 2020 - Dec 2020</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Achieved 100% positive customer feedback, ensuring timely deliveries.</li>
+                        <li>Optimized delivery routes, reducing costs by 10%.</li>
+                        <li>Consistently met delivery targets, contributing to operational efficiency.</li>
+                    </ul>
+                </div>
+
+                <!-- Innovins Technologies -->
+                <div class="card p-6 md:p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Business Development</h3>
+                    <p class="text-xl font-medium text-gray-800 mb-1">Innovins Technologies</p>
+                    <p class="text-gray-600 mb-4">May 2019 - Aug 2019</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Refined client outreach, boosting lead conversion by 20%.</li>
+                        <li>Pitched SEO services, contributing to business growth.</li>
+                        <li>Enhanced communication scripts, improving client engagement by 15%.</li>
+                    </ul>
+                </div>
+
+                <!-- Dhanlaxmi Enterprises -->
+                <div class="card p-6 md:p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Retail Operations</h3>
+                    <p class="text-xl font-medium text-gray-800 mb-1">Dhanlaxmi Enterprises</p>
+                    <p class="text-gray-600 mb-4">April 2017,18 - Aug 2017,18</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Increased sales by 10% through strategic product placement and upselling.</li>
+                        <li>Managed daily operations, maintaining high inventory accuracy.</li>
+                        <li>Delivered excellent customer service, resolving inquiries under 1 day.</li>
+                    </ul>
+                </div>
+
+                <!-- Repair Zilla -->
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-2">Founder</h3>
+                    <p class="text-xl font-medium text-gray-800 mb-1">Repair Zilla (Entrepreneurial Experience)</p>
+                    <p class="text-gray-600 mb-4">April 2017 - Present · Outsourced</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Scaled a hobby into a profitable business, growing revenue by 30% annually.</li>
+                        <li>Implemented marketing strategies that expanded the client base by 40%.</li>
+                        <li>Developed strong client relationships, ensuring a 95% customer retention rate.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-center mx-auto mb-12">Education</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- PGDM Finance -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-1">PGDM Finance</h3>
+                        <p class="text-lg text-gray-800 mb-1">I.E.S. MCRC (Pursuing)</p>
+                        <p class="text-gray-600 mb-1">Mumbai University</p>
+                        <p class="text-gray-600">Year of passing: 2025</p>
+                        <p class="text-gray-600">CGPA: $3.8/4$</p>
+                    </div>
+
+                    <!-- B. Com (A&F) -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-1">B. Com (A&F)</h3>
+                        <p class="text-lg text-gray-800 mb-1">K.E.S. Shroff College of Commerce</p>
+                        <p class="text-gray-600 mb-1">Mumbai University</p>
+                        <p class="text-gray-600">Year of passing: 2022</p>
+                        <p class="text-gray-600">CGPA: $9.1/10$</p>
+                    </div>
+
+                    <!-- HSC -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-1">HSC</h3>
+                        <p class="text-lg text-gray-800 mb-1">K.E.S. Shroff College of Commerce</p>
+                        <p class="text-gray-600 mb-1">Maharashtra State Board</p>
+                        <p class="text-gray-600">Year of passing: 2019</p>
+                        <p class="text-gray-600">Percentage: 76%</p>
+                    </div>
+
+                    <!-- SSC -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-1">SSC</h3>
+                        <p class="text-lg text-gray-800 mb-1">St. Peter's English High School</p>
+                        <p class="text-gray-600 mb-1">Maharashtra State Board</p>
+                        <p class="text-gray-600">Year of passing: 2017</p>
+                        <p class="text-gray-600">Percentage: 78%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-center mx-auto mb-12">Projects</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- JPMorgan Chase & Co. Corporate Analyst Development Program (CADP) -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">JPMorgan Chase & Co. Corporate Analyst Development Program (CADP)</h3>
+                        <p class="text-gray-700">Participated in the Corporate Analyst Development Program.</p>
+                    </div>
+
+                    <!-- Research Project on The Impact of Artificial Intelligence on the Finance Sector -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Research Project on The Impact of Artificial Intelligence on the Finance Sector</h3>
+                        <p class="text-gray-700">Conducted in-depth research on the influence of AI in the finance industry.</p>
+                    </div>
+
+                    <!-- Created a Financial Statement using Microsoft Excel -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Created a Financial Statement using Microsoft Excel</h3>
+                        <p class="text-gray-700">Developed a comprehensive financial statement using Excel, demonstrating analytical skills.</p>
+                    </div>
+
+                    <!-- Google Technical Support Fundamentals -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Google Technical Support Fundamentals</h3>
+                        <p class="text-gray-700">Completed foundational training in technical support.</p>
+                    </div>
+
+                    <!-- Job Simulations -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Job Simulations</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>BCG Introduction to Strategy Consulting</li>
+                            <li>JPMorgan Chase & Co. Excel Skills</li>
+                            <li>JPMorgan Chase Investment Banking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-center mx-auto mb-12">Certifications</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Bloomberg Certifications -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Bloomberg</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>ESG Fundamentals</li>
+                            <li>Market Concepts</li>
+                            <li>Finance Fundamentals</li>
+                        </ul>
+                    </div>
+                    <!-- Financial Certifications -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Financial Certifications</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Anti Money Laundering</li>
+                            <li>Know Your Customer and Payment Banks</li>
+                            <li>Understanding Personal Finance</li>
+                            <li>Foreign Exchange Rate Management and Derivatives</li>
+                            <li>Financial Planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-indigo-700 text-white rounded-t-3xl shadow-xl">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-title text-white mx-auto mb-12 after:bg-white">Get in Touch</h2>
+                <p class="text-lg md:text-xl mb-8">I'm always open to new opportunities and collaborations.</p>
+                <div class="space-y-4 md:space-y-0 md:flex md:justify-center md:space-x-8">
+                    <div class="flex items-center justify-center space-x-3">
+                        <img src="https://www.svgrepo.com/show/305217/email-16.svg" alt="Email Icon" class="w-8 h-8 icon">
+                        <a href="mailto:bhayanikunj@gmail.com" class="text-xl hover:underline">bhayanikunj@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3">
+                        <img src="https://www.svgrepo.com/show/305230/phone-call-outline.svg" alt="Phone Icon" class="w-8 h-8 icon">
+                        <a href="tel:+917303062393" class="text-xl hover:underline">+917303062393</a>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3">
+                        <img src="https://www.svgrepo.com/show/305216/location-pin.svg" alt="Location Icon" class="w-8 h-8 icon">
+                        <span class="text-xl">Mumbai, India</span>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <p class="text-xl mb-4">Connect with me on LinkedIn:</p>
+                    <a href="https://www.linkedin.com/in/kunj-bhayani-828800161/" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-indigo-700 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 duration-300">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Kunj Bhayani. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                if (mobileMenuSidebar.classList.contains('translate-x-0')) {
+                    mobileMenuSidebar.classList.remove('translate-x-0');
+                    mobileMenuSidebar.classList.add('translate-x-full');
+                    mobileMenuOverlay.classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenuSidebar = document.getElementById('mobile-menu-sidebar');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuSidebar.classList.remove('translate-x-full');
+            mobileMenuSidebar.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenuSidebar.classList.remove('translate-x-0');
+            mobileMenuSidebar.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            mobileMenuSidebar.classList.remove('translate-x-0');
+            mobileMenuSidebar.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+        });
+
+        // Close mobile menu when a link inside it is clicked
+        const mobileMenuLinks = mobileMenuSidebar.querySelectorAll('a[href^="#"]');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuSidebar.classList.remove('translate-x-0');
+                mobileMenuSidebar.classList.add('translate-x-full');
+                mobileMenuOverlay.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
