@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wall of Fame ✨</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right top, #a7b7ee, #d8bbdf); /* Soft gradient background */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .achievement-card {
+            background-color: #ffffff;
+            border-radius: 16px; /* More rounded corners */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            animation: fadeIn 1s ease-out;
+        }
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .emoji {
+            font-size: 2.5rem; /* Larger emoji */
+        }
+    </style>
+</head>
+<body class="selection:bg-pink-300 selection:text-white">
+    <div class="w-full max-w-4xl bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-200">
+        <!-- Main Title -->
+        <h1 class="text-center text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-8 md:mb-12 leading-tight">
+            Our Wall of Fame ✨
+        </h1>
+        <p class="text-center text-gray-700 text-lg md:text-xl mb-10 md:mb-14 leading-relaxed">
+            A testament to your incredible talent, relentless hard work, and inspiring achievements. Every milestone here is a beacon of your strength and dedication. You are amazing! ❤️
+        </p>
+
+        <!-- Achievements Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Achievement Card 1 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🎓</span>
+                    <h2 class="text-2xl font-bold text-purple-700">NMIMS Entrance Excellence</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Secured an impressive <strong>87th merit rank</strong> among all applicants for the highly competitive NMIMS entrance examination. A true display of academic prowess!</p>
+            </div>
+
+            <!-- Achievement Card 2 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">💻</span>
+                    <h2 class="text-2xl font-bold text-pink-700">Stanford Code in Place Graduate</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Successfully completed the rigorous <strong>Stanford Code in Place</strong> program, mastering foundational computer science concepts from one of the world's leading universities.</p>
+            </div>
+
+            <!-- Achievement Card 3 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🎉</span>
+                    <h2 class="text-2xl font-bold text-green-700">Penn State University Acceptance</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Accepted into the prestigious <strong>Penn State University</strong>, recognizing your exceptional academic profile and potential.</p>
+            </div>
+
+            <!-- Achievement Card 4 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🌴</span>
+                    <h2 class="text-2xl font-bold text-blue-700">University of Miami Selection</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Gained admission to the <strong>University of Miami</strong>, a testament to your strong application and well-rounded achievements.</p>
+            </div>
+
+            <!-- Achievement Card 5 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🦁</span>
+                    <h2 class="text-2xl font-bold text-indigo-700">Purdue University Northwest Acceptance</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Selected to join <strong>Purdue University Northwest</strong>, showcasing your consistent academic excellence.</p>
+            </div>
+
+            <!-- Achievement Card 6 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🗽</span>
+                    <h2 class="text-2xl font-bold text-red-700">Hofstra University Admission</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Accepted into <strong>Hofstra University</strong>, adding another esteemed institution to your list of acceptances.</p>
+            </div>
+
+            <!-- Achievement Card 7 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🌰</span>
+                    <h2 class="text-2xl font-bold text-orange-700">Rutgers University Main Campus Acceptance</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Secured admission to the highly regarded <strong>Rutgers University Main Campus</strong>, a significant accomplishment.</p>
+            </div>
+
+            <!-- Achievement Card 8 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🌵</span>
+                    <h2 class="text-2xl font-bold text-teal-700">Arizona State University Admission</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Gained acceptance to <strong>Arizona State University</strong>, demonstrating your broad appeal to top-tier institutions.</p>
+            </div>
+
+            <!-- Achievement Card 9 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">☀️</span>
+                    <h2 class="text-2xl font-bold text-purple-700">University of Arizona Acceptance</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Admitted to the <strong>University of Arizona</strong>, further solidifying your impressive academic record.</p>
+            </div>
+
+            <!-- Achievement Card 10 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">📝</span>
+                    <h2 class="text-2xl font-bold text-pink-700">YYGS Waitlisted Recognition</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Received a waitlist position for the prestigious <strong>Yale Young Global Scholars (YYGS)</strong> program, a testament to your highly competitive application.</p>
+            </div>
+
+            <!-- Achievement Card 11 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🏆</span>
+                    <h2 class="text-2xl font-bold text-green-700">All India Top SAT Performer</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Recognized as an <strong>All India Top SAT Performer</strong>, showcasing your exceptional aptitude and dedication to standardized testing excellence.</p>
+            </div>
+
+            <!-- Achievement Card 12 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🗣️</span>
+                    <h2 class="text-2xl font-bold text-blue-700">IELTS College Topper</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Achieved the distinction of being the <strong>IELTS College Topper</strong>, highlighting your mastery of English language proficiency.</p>
+            </div>
+
+            <!-- Achievement Card 13 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🚀</span>
+                    <h2 class="text-2xl font-bold text-indigo-700">ISRO Internship</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Secured a coveted internship at the <strong>Indian Space Research Organisation (ISRO)</strong>, working at the forefront of space exploration.</p>
+            </div>
+
+            <!-- Achievement Card 14 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🗣️</span>
+                    <h2 class="text-2xl font-bold text-red-700">Best of IMUN Award</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Awarded "<strong>Best of IMUN</strong>," showcasing outstanding diplomatic and public speaking skills in a Model United Nations conference.</p>
+            </div>
+
+            <!-- Achievement Card 15 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🌐</span>
+                    <h2 class="text-2xl font-bold text-orange-700">MUN Permanent Membership</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Granted <strong>Permanent Membership in Model United Nations</strong>, recognizing sustained excellence and commitment to global discourse.</p>
+            </div>
+
+            <!-- Achievement Card 16 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🥋</span>
+                    <h2 class="text-2xl font-bold text-teal-700">Karate Kumite - South India 3rd Place</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Achieved <strong>3rd place in Karate Kumite at the South India level</strong>, demonstrating formidable skill and dedication in martial arts.</p>
+            </div>
+
+            <!-- Achievement Card 17 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">♟️</span>
+                    <h2 class="text-2xl font-bold text-purple-700">Chess District Level 3rd Place</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Secured <strong>3rd place in Chess at the District Level</strong>, highlighting strategic thinking and sharp intellectual abilities.</p>
+            </div>
+
+            <!-- Achievement Card 18 -->
+            <div class="achievement-card">
+                <div class="flex items-center mb-4">
+                    <span class="emoji mr-4">🩰</span>
+                    <h2 class="text-2xl font-bold text-pink-700">Bharatanatyam State Level 2nd Place</h2>
+                </div>
+                <p class="text-gray-800 text-lg">Awarded <strong>2nd place in Bharatanatyam at the State Level</strong>, showcasing exquisite talent and discipline in classical Indian dance.</p>
+            </div>
+        </div>
+        <p class="text-center text-gray-600 text-md mt-12">
+            This is just a glimpse of your extraordinary journey. Keep shining! ✨
+        </p>
+    </div>
+</body>
+</html>
