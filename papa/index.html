@@ -1,0 +1,236 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diamond Factory Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .swiper-button-next, .swiper-button-prev {
+        color: #4C1D95;
+      }
+
+      :root {
+        --shimmer-dark: #000;
+        --shimmer-light: #fff;
+        --shimmer-bg: #222;
+        --shimmer-text-opacity: rgba(255, 255, 255, 0.1);
+      }
+      .shimmer {
+        font: 100 2em "Lato", sans-serif;
+        padding: 0 180px;
+        color: var(--shimmer-text-opacity);
+        background: -webkit-linear-gradient(
+          -45deg,
+          var(--shimmer-dark),
+          var(--shimmer-light),
+          var(--shimmer-dark)
+        );
+        background-size: 50px 100%;
+        background-clip: text;
+        animation: shimmer 4s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-color: var(--shimmer-bg);
+        user-select: none;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: top left;
+        }
+        100% {
+          background-position: top right;
+        }
+      }
+
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-[#F8F9FC] to-[#E0E7FF] font-[Inter,sans-serif] text-[#1F2937]">
+    <div class="flex justify-between items-center px-4 py-3 shadow-lg bg-white/80 backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 w-full z-50">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-[#4C1D95] drop-shadow-sm">Diamond Factory Guide</h1>
+      <select id="language" class="border px-3 py-1 rounded-md">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="gu">ગુજરાતી</option>
+        <option value="ta">தமிழ்</option>
+      </select>
+    </div>
+
+    <div class="swiper mySwiper mt-20">
+      <div class="swiper-wrapper">
+        <!-- Steps will be dynamically generated -->
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      const steps = [
+        {
+          title: "Rough Diamond Sorting",
+          images: [
+            { src: "https://placehold.co/400", alt: "Sawable" },
+            { src: "https://placehold.co/400", alt: "Makeable" },
+            { src: "https://placehold.co/400", alt: "Reject" },
+          ],
+          descriptions: {
+            en: "Diamonds are sorted into categories based on shape and inclusions. Sawable are suitable for symmetrical cuts. Makeable may need more shaping. Rejects are unsuitable.",
+            hi: "हीरे को आकार और अंतर्गों के आधार पर वर्गीकृत किया जाता है। Sawable हीरे सममित कट के लिए उपयुक्त होते हैं। Makeable को अधिक आकार देने की आवश्यकता हो सकती है। Rejects अनुपयुक्त होते हैं।",
+            gu: "હીરાને આકાર અને સામેલીઓના આધાર પર વર્ગીકૃત કરવામાં આવે છે. Sawable સમમિત કાપ માટે યોગ્ય હોય છે. Makeable ને વધુ આકાર આપવાની જરૂર હોઈ શકે છે. Rejects અનુરૂપ નથી.",
+            ta: "விளக்கங்களில் மற்றும் வடிவங்களில் அடிப்படையில் வைரங்கள் வகைப்படுத்தப்படுகின்றன. Sawable என்பது ஒத்த வடிவத்தில் வெட்டுவதற்கு ஏற்றவை. Makeable என்பது மேலும் வடிவமைப்பதற்கேற்றவை. Rejects பயன்பாடற்றவை."
+          }
+        },
+        {
+          title: "Planning and Marking",
+          images: [
+            { src: "https://placehold.co/400", alt: "Planning" },
+            { src: "https://placehold.co/400", alt: "Marking" }
+          ],
+          descriptions: {
+            en: "Planning is done using software to maximize yield. Marking is done to guide cutters for precise cutting.",
+            hi: "उत्पादन अधिकतम करने के लिए सॉफ़्टवेयर की मदद से योजना बनाई जाती है। सटीक कटिंग के लिए मार्किंग की जाती है।",
+            gu: "પેદાશ વધારવા માટે સોફ્ટવેરની મદદથી યોજના બનાવવામાં આવે છે. ચોક્કસ કાપ માટે માર્કિંગ કરવામાં આવે છે.",
+            ta: "அதிக பெறுமதியை உருவாக்க திட்டமிடல் மென்பொருள் மூலம் செய்யப்படுகிறது. துல்லியமாக வெட்ட மார்க்கிங் செய்யப்படுகிறது."
+          }
+        },
+        {
+          title: "Cleaving or Sawing",
+          images: [
+            { src: "https://placehold.co/400", alt: "Cleaving" },
+            { src: "https://placehold.co/400", alt: "Sawing" }
+          ],
+          descriptions: {
+            en: "Cleaving splits diamonds along natural lines; sawing is done with laser or blade for non-cleavable stones.",
+            hi: "Cleaving प्राकृतिक रेखाओं के साथ हीरे को विभाजित करता है; Sawing नॉन-क्लीवेबल पत्थरों के लिए लेज़र या ब्लेड से किया जाता है।",
+            gu: "Cleaving કુદરતી રેખાઓ સાથે હીરાને વિભાજિત કરે છે; Sawing નોન-ક્લિવેબલ પથ્થરો માટે લેસર અથવા બ્લેડથી થાય છે.",
+            ta: "Cleaving என்பது இயற்கை கோட்டுகளுக்கு இணையாக வெட்டும் முறை; Sawing என்பது லேசர் அல்லது பிளேடு மூலம் வெட்டும் முறை."
+          }
+        },
+        {
+          title: "Bruting",
+          images: [
+            { src: "https://placehold.co/400", alt: "Bruting Process" }
+          ],
+          descriptions: {
+            en: "Bruting gives the diamond a round shape by grinding two diamonds together.",
+            hi: "Bruting दो हीरों को एक साथ पीसकर उन्हें गोल आकार देता है।",
+            gu: "Bruting બે હીરાને એકસાથે ઘસીને તેમને ગોળ આકાર આપે છે.",
+            ta: "Bruting என்பது இரண்டு வைரங்களை அரைத்து சுற்றமான வடிவம் கொடுக்கும் செயல்."
+          }
+        },
+        {
+          title: "Polishing",
+          images: [
+            { src: "https://placehold.co/400", alt: "Polishing" }
+          ],
+          descriptions: {
+            en: "Polishing smooths the surface and creates facets to enhance brilliance.",
+            hi: "पॉलिशिंग सतह को चिकना बनाता है और चमक बढ़ाने के लिए फेसट्स बनाता है।",
+            gu: "પોલિશિંગ સપાટી સરળ બનાવે છે અને તેજ વધારવા માટે ફેસેટ બનાવે છે.",
+            ta: "பாலிஷிங் என்பது மேற்பரப்பை மென்மையாகவும் பிரகாசமாகவும் மாற்றும் செயலாகும்."
+          }
+        },
+        {
+          title: "Inspection and Quality Check",
+          images: [
+            { src: "https://placehold.co/400", alt: "Quality Control" }
+          ],
+          descriptions: {
+            en: "Each diamond undergoes strict quality checks for cut, clarity, color, and carat.",
+            hi: "प्रत्येक हीरे की कट, स्पष्टता, रंग और वजन के लिए सख्त गुणवत्ता जांच होती है।",
+            gu: "દરેક હીરા માટે કટ, સ્પષ્ટતા, રંગ અને કેરેટ માટે કડક ગુણવત્તા તપાસ થાય છે.",
+            ta: "ஒவ்வொரு வைரமும் வெட்டு, வெளிப்படைத்தன்மை, நிறம் மற்றும் எடை ஆகியவற்றிற்காக கண்டிப்பான தரம்சோதனையை கடந்து செல்லும்."
+          }
+        },
+        {
+          title: "Laser Inscription (Optional)",
+          images: [
+            { src: "https://placehold.co/400", alt: "Laser Inscription" }
+          ],
+          descriptions: {
+            en: "Some diamonds are laser inscribed for certification or personalization.",
+            hi: "कुछ हीरों पर प्रमाणन या वैयक्तिकरण के लिए लेज़र अंकन किया जाता है।",
+            gu: "કેટલાક હીરા માટે પ્રમાણપત્ર કે વ્યક્તિગતકરણ માટે લેસર ઇન્સ્ક્રિપ્શન થાય છે.",
+            ta: "சில வைரங்கள் சான்றிதழ் அல்லது தனிப்பயனாக்கத்திற்காக லேசர் எழுத்தமைப்பு பெறுகின்றன."
+          }
+        },
+        {
+          title: "Packaging and Distribution",
+          images: [
+            { src: "https://placehold.co/400", alt: "Packaging" }
+          ],
+          descriptions: {
+            en: "Diamonds are packed securely and shipped to jewelers and customers worldwide.",
+            hi: "हीरे को सुरक्षित रूप से पैक किया जाता है और दुनिया भर में आभूषण विक्रेताओं और ग्राहकों को भेजा जाता है।",
+            gu: "હીરાને સુરક્ષિત રીતે પેક કરીને સમગ્ર વિશ્વના જ્વેલર્સ અને ગ્રાહકો સુધી મોકલવામાં આવે છે.",
+            ta: "வைரங்கள் பாதுகாப்பாக தொகுக்கப்பட்டு உலகம் முழுவதும் நகை விற்பனையாளர்கள் மற்றும் வாடிக்கையாளர்களுக்கு அனுப்பப்படுகின்றன."
+          }
+        }
+      ];
+
+      const swiperWrapper = document.querySelector(".swiper-wrapper");
+
+      steps.forEach((step, idx) => {
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide flex items-center justify-center h-[calc(100vh-5rem)] px-4 fade-in";
+        const container = document.createElement("div");
+        container.className = "max-w-5xl w-full bg-white border border-violet-300 shadow-xl rounded-2xl p-8 space-y-6";
+
+        const title = document.createElement("h2");
+        title.className = "shimmer font-bold";
+        title.textContent = `Step ${idx + 1}: ${step.title}`;
+
+        const imgGrid = document.createElement("div");
+        imgGrid.className = `grid grid-cols-${step.images.length} gap-4`;
+        step.images.forEach(img => {
+          const image = document.createElement("img");
+          image.src = img.src;
+          image.alt = img.alt;
+          image.className = "rounded-xl hover:scale-105 shadow-md transition-transform duration-300";
+          imgGrid.appendChild(image);
+        });
+
+        const descContainer = document.createElement("div");
+        descContainer.className = "text-lg space-y-2";
+        Object.entries(step.descriptions).forEach(([lang, text]) => {
+          const p = document.createElement("p");
+          p.className = `lang lang-${lang} ${lang === 'en' ? 'block' : 'hidden'}`;
+          p.textContent = text;
+          descContainer.appendChild(p);
+        });
+
+        container.appendChild(title);
+        container.appendChild(imgGrid);
+        container.appendChild(descContainer);
+        slide.appendChild(container);
+        swiperWrapper.appendChild(slide);
+      });
+
+      const swiper = new Swiper(".mySwiper", {
+        direction: "horizontal",
+        loop: false,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        effect: "slide",
+        speed: 600,
+      });
+
+      const langSelect = document.getElementById("language");
+      langSelect.addEventListener("change", (e) => {
+        document.querySelectorAll(".lang").forEach(el => el.classList.add("hidden"));
+        document.querySelectorAll(`.lang-${e.target.value}`).forEach(el => el.classList.remove("hidden"));
+      });
+    </script>
+  </body>
+</html>
