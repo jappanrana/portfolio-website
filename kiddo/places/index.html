@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Travel Bucket List 💕</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .visited {
+      opacity: 0.5;
+      text-decoration: line-through;
+    }
+    .theme-italy { background: linear-gradient(to right, #ffe5ec, #ffc2d1); }
+    .theme-slovenia { background: linear-gradient(to right, #d0f4de, #a9def9); }
+    .theme-austria { background: linear-gradient(to right, #fbc4ab, #ffdab9); }
+    .theme-malta { background: linear-gradient(to right, #fcd5ce, #faedcd); }
+    .theme-greece { background: linear-gradient(to right, #e0fbfc, #c2f0f7); }
+    .theme-belgium { background: linear-gradient(to right, #f6e8ea, #fcd5ce); }
+    .theme-france { background: linear-gradient(to right, #ffdee9, #b5ead7); }
+    .theme-switzerland { background: linear-gradient(to right, #d0f4de, #e4c1f9); }
+    .theme-czech { background: linear-gradient(to right, #fde2e4, #c5f6fa); }
+    .theme-hungary { background: linear-gradient(to right, #caffbf, #9bf6ff); }
+    .theme-portugal { background: linear-gradient(to right, #ffc6ff, #fffffc); }
+    .theme-spain { background: linear-gradient(to right, #ffd6a5, #ffadad); }
+    .theme-estonia { background: linear-gradient(to right, #c3bef0, #a0c4ff); }
+    .theme-iceland { background: linear-gradient(to right, #dee2ff, #f0efeb); }
+    .theme-croatia { background: linear-gradient(to right, #caffbf, #e0f7fa); }
+    .theme-azerbaijan { background: linear-gradient(to right, #e0aaff, #ffafcc); }
+    .theme-uae { background: linear-gradient(to right, #ffc09f, #ffee93); }
+    .theme-singapore { background: linear-gradient(to right, #d5f4e6, #80ced6); }
+    .theme-jordan { background: linear-gradient(to right, #ffb3c1, #d6d1b1); }
+    .theme-turkey { background: linear-gradient(to right, #cdb4db, #ffc8dd); }
+    .theme-georgia { background: linear-gradient(to right, #b5ead7, #fcd5ce); }
+    .theme-srilanka { background: linear-gradient(to right, #f6e8ea, #fcd5ce); }
+    .theme-oman { background: linear-gradient(to right, #caf0f8, #ade8f4); }
+    .theme-morocco { background: linear-gradient(to right, #ffd6a5, #caffbf); }
+    .theme-indonesia { background: linear-gradient(to right, #d0f4de, #e0aaff); }
+  </style>
+</head>
+<body class="bg-pink-50 min-h-screen p-6">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-4xl font-bold text-pink-600 mb-6 text-center">💕 Our Travel Bucket List 💕</h1>
+    <p class="text-center text-gray-600 mb-6">Click a card to mark it as visited ✨</p>
+    <div id="places" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </div>
+
+  <script>
+    const places = [
+      { name: "Venice, Italy", budget: "₹1.48L", vibe: "Floating fairytale, pure romance", theme: "italy" },
+      { name: "Ljubljana + Bled, Slovenia", budget: "₹1.25L", vibe: "Lakeside magic, peace & nature", theme: "slovenia" },
+      { name: "Cinque Terre, Italy", budget: "₹1.23L", vibe: "Colorful cliffs, cozy hikes", theme: "italy" },
+      { name: "Vienna, Austria", budget: "₹1.33L", vibe: "Classical, elegant, cultural", theme: "austria" },
+      { name: "Malta", budget: "₹1.29L", vibe: "Historic coast, island calm", theme: "malta" },
+      { name: "Santorini, Greece", budget: "₹1.45–1.6L", vibe: "Sunset luxury, sea & sky dream", theme: "greece" },
+      { name: "Hallstatt, Austria", budget: "₹93K", vibe: "Still lakes, mountains, silence", theme: "austria" },
+      { name: "Bruges, Belgium", budget: "₹1.2L", vibe: "Old-world charm, chocolate cafés", theme: "belgium" },
+      { name: "Colmar, France", budget: "₹1.25L", vibe: "Fairytale village, floral beauty", theme: "france" },
+      { name: "Lucerne & Lauterbrunnen, Switzerland", budget: "₹1.4L", vibe: "Swiss calm, nature’s heaven", theme: "switzerland" },
+      { name: "Prague, Czech Republic", budget: "₹1.2L", vibe: "Fairytale old town, castles, riverside romance", theme: "czech" },
+      { name: "Budapest, Hungary", budget: "₹1.15L", vibe: "Thermal baths, Danube charm, historic elegance", theme: "hungary" },
+      { name: "Porto, Portugal", budget: "₹1.25L", vibe: "Riverside wine city, romantic sunsets, colorful charm", theme: "portugal" },
+      { name: "Amalfi Coast, Italy", budget: "₹1.5L", vibe: "Cliffside villages, lemon groves, sea breeze luxury", theme: "italy" },
+      { name: "Seville, Spain", budget: "₹1.2L", vibe: "Flamenco, Moorish palaces, slow and sunny love", theme: "spain" },
+      { name: "Tallinn, Estonia", budget: "₹1.05L", vibe: "Medieval old town, cozy cafés, Baltic calm", theme: "estonia" },
+      { name: "Reykjavik + South Coast, Iceland", budget: "₹1.6–1.8L", vibe: "Northern lights, hot springs, wild romance", theme: "iceland" },
+      { name: "Dubrovnik, Croatia", budget: "₹1.3L", vibe: "Adriatic beauty, walled city charm, serene beaches", theme: "croatia" },
+      { name: "Nice + Èze, France", budget: "₹1.4L", vibe: "French Riviera glam, cliff village peace", theme: "france" },
+      { name: "Valletta, Malta", budget: "₹1.3L", vibe: "Baroque streets, sea forts, Mediterranean calm", theme: "malta" },
+      { name: "Azerbaijan (Baku)", budget: "₹90K – 1.1L", vibe: "Europe-meets-Asia charm, modern + ancient, budget", theme: "azerbaijan" },
+      { name: "Dubai, UAE", budget: "₹1.35 – 1.5L", vibe: "Luxury desert city, beaches, sky-high romance, modern", theme: "uae" },
+      { name: "Singapore", budget: "₹1.4 – 1.6L", vibe: "Ultra-clean, garden city, vibrant & modern, couple", theme: "singapore" },
+      { name: "Jordan (Amman + Petra)", budget: "₹1.45L", vibe: "Desert trails, ancient city romance, exotic mystery", theme: "jordan" },
+      { name: "Turkey (Istanbul + Cappadocia)", budget: "₹1.35 – 1.55L", vibe: "Hot air balloons, sea + spice markets, dreamland vibes", theme: "turkey" },
+      { name: "Georgia (Tbilisi + Kazbegi)", budget: "₹95K – 1.15L", vibe: "Wine valleys, cute cafés, mountains & peace", theme: "georgia" },
+      { name: "Sri Lanka (Galle + Ella)", budget: "₹1 – 1.1L", vibe: "Colonial charm, hill trains, serene beaches", theme: "srilanka" },
+      { name: "Oman (Muscat + Wadis)", budget: "₹1.35L", vibe: "Luxury desert oasis, turquoise beaches, calm & class", theme: "oman" },
+      { name: "Morocco (Marrakech + Chefchaouen)", budget: "₹1.5 – 1.6L", vibe: "Colorful souks, blue cities, boho magic", theme: "morocco" },
+      { name: "Bali, Indonesia", budget: "₹1.1 – 1.3L", vibe: "Jungle villas, ocean bliss, temples & peace", theme: "indonesia" }
+    ];
+
+    const visited = JSON.parse(localStorage.getItem("visitedPlaces") || "[]");
+
+    function toggleVisit(name) {
+      const index = visited.indexOf(name);
+      if (index > -1) visited.splice(index, 1);
+      else visited.push(name);
+      localStorage.setItem("visitedPlaces", JSON.stringify(visited));
+      render();
+    }
+
+    function render() {
+      const container = document.getElementById("places");
+      container.innerHTML = "";
+      places.forEach(({ name, budget, vibe, theme }) => {
+        const isVisited = visited.includes(name);
+        const card = document.createElement("div");
+        card.className = `p-4 rounded-xl shadow-md border cursor-pointer transition-all duration-300 hover:scale-105 theme-${theme} ${isVisited ? 'visited' : ''}`;
+        card.onclick = () => toggleVisit(name);
+        card.innerHTML = `
+          <h2 class="text-xl font-bold">${name}</h2>
+          <p><strong>Budget:</strong> ${budget}</p>
+          <p><strong>Vibe:</strong> ${vibe}</p>
+          <p class="mt-2 text-sm">${isVisited ? "✔️ Visited" : "❌ Not Visited"}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
