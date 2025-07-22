@@ -18,15 +18,17 @@
     /* Main container with 3.5:2 ratio */
     .container {
       position: relative;
-      width: 288px;
-      height: 504px; /* 3.5:2 ratio (700/400 = 1.75) */
+      width: 400px; /*288 x 504*/
+      height: 400px; /* 3.5:2 ratio (700/400 = 1.75) */
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 40px;
+      padding: 10px;
       box-sizing: border-box;
+      background: lightgreen;
+      border: 2px solid lightgreen;
     }
 
     /* Blurred background */
@@ -50,23 +52,22 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 60px);
-      grid-template-rows: repeat(3, 60px);
-      border: 2px solid darkgreen;
+      grid-template-columns: repeat(3, 80px);
+      grid-template-rows: repeat(3, 80px);
+      border: 1px solid darkgreen;
     }
 
     .cell {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 4px solid darkgreen;
+      border: 2px solid darkgreen;
       font-weight: bold;
       font-size: 24px;
       color: darkgreen;
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       box-sizing: border-box;
-      background-color: rgba(255, 255, 255, 0.6);
     }
 
     .phone-input-wrapper {
@@ -109,13 +110,13 @@
   <!-- Container that will be captured -->
   <div class="container" id="capture-area">
     <!-- Blurred background image -->
-    <img class="background-image" src="./bg.jpeg" alt="Background"/>
+    <!-- <img class="background-image" src="./bg.jpeg" alt="Background"/> -->
 
     <!-- Top image -->
     <img class="top-image" src="./shree.png" alt="Top Icon" />
 
     <!-- Grid -->
-    <div class="grid">
+    <div class="grid" style="background-image: url('./yantra.jpeg'); background-size: cover;">
       <div class="cell">8</div>
       <div class="cell">1</div>
       <div class="cell">6</div>
