@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +27,315 @@
 <meta name="theme-color" content="#ff3131">
 
 <style>
-/* Your existing CSS goes here exactly as it is */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    overflow:hidden;
+    background:#111;
+    font-family:Arial,Helvetica,sans-serif;
+}
+.scene{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(to bottom,#82c9ff 0%,#ccecff 100%);
+}
+/* Ground */
+.ground{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:28%;
+    background:#79c567;
+}
+/* Shadow */
+.shadow{
+    position:absolute;
+    left:50%;
+    bottom:24%;
+    width:20px;
+    height:10px;
+    background:rgba(0,0,0,.25);
+    border-radius:50%;
+    filter:blur(4px);
+    transform:translateX(-50%);
+    animation:shadowMove 2.1s forwards;
+}
+/* Pokeball */
+.ball{
+    position:absolute;
+    left:-120px;
+    bottom:24%;
+    width:95px;
+    height:95px;
+    border-radius:50%;
+    border:5px solid #222;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    animation:throwBall 2.1s forwards;
+    z-index:5;
+}
+.ball:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:50%;
+    background:#ff3131;
+}
+.band{
+    position:absolute;
+    top:50%;
+    width:100%;
+    height:8px;
+    background:#222;
+    transform:translateY(-50%);
+}
+.button{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:22px;
+    height:22px;
+    transform:translate(-50%,-50%);
+    background:white;
+    border:5px solid #222;
+    border-radius:50%;
+    z-index:2;
+}
+/* Flash */
+.flash{
+    position:absolute;
+    left:50%;
+    bottom:33%;
+    transform:translateX(-50%);
+    width:0;
+    height:0;
+    border-radius:50%;
+    background:white;
+    opacity:0;
+}
+.flash.active{
+    animation:flash .8s ease-out forwards;
+}
+@keyframes flash{
+0%{
+width:0;
+height:0;
+opacity:0;
+}
+30%{
+width:80px;
+height:80px;
+opacity:1;
+}
+100%{
+width:520px;
+height:520px;
+opacity:0;
+}
+}
+/* Sparks */
+.spark{
+    position:absolute;
+    left:50%;
+    bottom:33%;
+    width:10px;
+    height:10px;
+    background:white;
+    border-radius:50%;
+    opacity:0;
+}
+.spark.show{
+    animation:spark .8s forwards;
+}
+.spark:nth-of-type(1){--x:-170px;--y:-120px;}
+.spark:nth-of-type(2){--x:170px;--y:-100px;}
+.spark:nth-of-type(3){--x:-120px;--y:100px;}
+.spark:nth-of-type(4){--x:140px;--y:120px;}
+.spark:nth-of-type(5){--x:0px;--y:-170px;}
+@keyframes spark{
+0%{
+opacity:1;
+transform:translate(-50%,0) scale(.2);
+}
+100%{
+opacity:0;
+transform:translate(calc(-50% + var(--x)),var(--y)) scale(2);
+}
+}
+/* Text */
+.text{
+    position:absolute;
+    left:50%;
+    top:46%;
+    transform:translate(-50%,-50%) scale(.2);
+    text-align:center;
+    opacity:0;
+    z-index:20;
+}
+.name{
+    font-size:78px;
+    font-weight:900;
+    color:#FFD93D;
+    -webkit-text-stroke:4px #2554d8;
+    text-shadow:0 8px 20px rgba(0,0,0,.35);
+    letter-spacing:3px;
+}
+.choose{
+    margin-top:15px;
+    font-size:44px;
+    color:white;
+    font-weight:900;
+    -webkit-text-stroke:2px #222;
+    letter-spacing:2px;
+}
+.text.show{
+    animation:textPop .7s forwards;
+}
+@keyframes textPop{
+0%{
+opacity:0;
+transform:translate(-50%,-50%) scale(.2);
+}
+65%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1.15);
+}
+100%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+}
+}
+/* Ball Throw */
+@keyframes throwBall{
+0%{
+left:-120px;
+bottom:22%;
+transform:rotate(0deg);
+}
+30%{
+left:25%;
+bottom:65%;
+transform:rotate(540deg);
+}
+60%{
+left:50%;
+bottom:22%;
+transform:translateX(-50%) rotate(960deg);
+}
+75%{
+left:50%;
+bottom:31%;
+transform:translateX(-50%) rotate(1100deg);
+}
+88%{
+left:50%;
+bottom:22%;
+transform:translateX(-50%) rotate(1180deg);
+}
+95%{
+left:50%;
+bottom:26%;
+transform:translateX(-50%) rotate(1220deg);
+}
+100%{
+left:50%;
+bottom:22%;
+transform:translateX(-50%) rotate(1260deg);
+}
+}
+@keyframes shadowMove{
+0%{
+width:20px;
+opacity:.15;
+}
+30%{
+width:65px;
+opacity:.35;
+}
+60%{
+width:80px;
+opacity:.45;
+}
+100%{
+width:70px;
+opacity:.35;
+}
+}
+@media(max-width:700px){
+.name{
+font-size:48px;
+}
+.choose{
+font-size:26px;
+}
+.ball{
+width:70px;
+height:70px;
+}
+}
 </style>
 </head>
+<body>
+<div class="scene">
+<div class="ground"></div>
+<div class="shadow"></div>
+<div class="ball">
+    <div class="band"></div>
+    <div class="button"></div>
+</div>
+<div class="flash"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="spark"></div>
+<div class="text">
+    <div class="name" id="pokemonName">TRAINER!</div>
+    <div class="choose">I CHOOSE YOU!</div>
+</div>
+</div>
+<script>
+// Get name from URL
+const params = new URLSearchParams(window.location.search);
+let name = params.get("name") || "TRAINER";
+// Decode URL
+try {
+    name = decodeURIComponent(name.replace(/\+/g, " "));
+} catch(e) {}
+// Trim
+name = name.trim();
+// Remove HTML tags
+name = name.replace(/<[^>]*>/g, "");
+// Limit length
+if(name.length > 25){
+    name = name.substring(0,25);
+}
+// Default if empty
+if(name === ""){
+    name = "TRAINER";
+}
+// Display
+document.getElementById("pokemonName").textContent =
+    name.toUpperCase() + "!";
+// Animations
+setTimeout(()=>{
+    document.querySelector(".flash").classList.add("active");
+    document.querySelectorAll(".spark").forEach(e=>{
+        e.classList.add("show");
+    });
+},2100);
+setTimeout(()=>{
+    document.querySelector(".text").classList.add("show");
+},2500);
+</script>
+</body>
+</html>
